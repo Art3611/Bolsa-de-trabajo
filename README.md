@@ -8,6 +8,16 @@ Dentro de este readme encontraras la guia a la documentacion y codigo corresponi
 
 ## Tabla de contenidos
 
+- [Proyecto integrado 23-24](#proyecto-integrado-23-24)
+  - [Bolsa de trabajo](#bolsa-de-trabajo)
+  - [Tabla de contenidos](#tabla-de-contenidos)
+  - [Entregas](#entregas)
+    - [Entrega 1](#entrega-1)
+    - [Entrega 2](#entrega-2)
+  - [Documentacion](#documentacion)
+  - [Descripcion del proyecto](#descripcion-del-proyecto)
+  - [Tecnologias](#tecnologias)
+
 ## Entregas
 
 Al ser un proyecto de desarrollo se realizara en varias partes por lo que se necesita tener un orden y documentacion del proyecto adecuada con esto se busca tener un control y seguimiento del proyecto.

@@ -41,3 +41,6 @@ Esta tabla tendra la informacion general de nuestra empresa registrada para mane
 Esta tabla se encargara de almacenar los datos de contacto de la empresa que se registran en la aplicacion y servira para manejar el contacto con las empresas.
 
 Es una base de datos sencilla que maneja las relaciones de las tablas de manera correcta para que la aplicacion funcione de manera correcta, obviamente puede a estar sujeta a cambios con el avance del desarrollo en el proyecto.
+
+Enlace drive al archivo
+https://drive.google.com/file/d/1vLM0MAuJJg0JfHgyOqqDm1vAzU9PU7MM/view?usp=sharing

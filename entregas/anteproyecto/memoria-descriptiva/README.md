@@ -20,7 +20,6 @@ Funcionalidades de empresa:
 - Registro de empresa
 - Inicio de sesión
 - Publicación de ofertas de trabajo
-- Postulación a ofertas de trabajo
 
 Las cuentas de empresa contarán con un panel en el que pueden observar todas sus publicaciones de empleo y dentro de ellos una lista de las personas que se han postulado a sus ofertas de trabajo con sus datos personales de contacto y un botón rápido en el cual podrán actualizar el estado de la solicitud (rechazar, revisado).
 

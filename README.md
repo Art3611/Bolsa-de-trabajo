@@ -27,7 +27,7 @@ Todas las entregas que se realizaran en el transcurso de tiempo del proyecto se 
 
 ### Entrega 1
 
-Propuesta del proyecto
+[Propuesta del proyecto](./entregas/anteproyecto/propuesta de proyecto)
 
 ### Entrega 2
 

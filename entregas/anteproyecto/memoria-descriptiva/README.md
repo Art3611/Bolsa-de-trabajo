@@ -17,6 +17,8 @@ Funcionalidades de usuario:
 - Postulación a ofertas de trabajo
 
 Funcionalidades de empresa:
+- Registro de empresa
+- Inicio de sesión
 - Publicación de ofertas de trabajo
 - Postulación a ofertas de trabajo
 

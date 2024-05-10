@@ -7,11 +7,13 @@
  * Contiene métodos para saludar y realizar otras acciones.
  */
 class Inicio extends Controller{
+
   function __construct(){
     parent::__construct();
   }
   
   function render(){
+    $this->view->tituloPage= "Inicio";
     $this->view->render('inicio/index');
   }
 

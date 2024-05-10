@@ -8,6 +8,8 @@
  * correspondientes a cada acción del controlador.
  */
 class View {
+    public $tituloPage;
+
     /**
      * Constructor de la clase View
      */

@@ -54,7 +54,7 @@ class App {
             }
 
         }else {
-            $controller = new Errores();
+            $controller = new ErrorFile();
         }
 
     }

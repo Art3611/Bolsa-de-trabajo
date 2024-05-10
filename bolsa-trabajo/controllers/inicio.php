@@ -1,14 +1,18 @@
 <?php
 
 /**
- * Clase Main
+ * Clase Inicio
  * 
  * Esta clase representa el controlador principal del proyecto.
  * Contiene métodos para saludar y realizar otras acciones.
  */
-class Main{
+class Inicio extends Controller{
   function __construct(){
-    echo "Controlador main";
+    parent::__construct();
+  }
+  
+  function render(){
+    $this->view->render('inicio/index');
   }
 
   /**

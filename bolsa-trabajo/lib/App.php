@@ -1,4 +1,7 @@
 <?php
+
+require_once 'controllers/error.php';
+
 /**
  * Clase App que representa la aplicación principal.
  */
@@ -59,3 +62,5 @@ class App {
 
     }
 }
+
+?>

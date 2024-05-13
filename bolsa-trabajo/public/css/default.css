@@ -1,3 +1,24 @@
 .text-gray{
     color: #B1B1B1;
 }
+
+.bg-slider {
+    background-image: url('../img/slider.png');
+    height: 100vh;
+    background-size: cover;
+}
+
+.bg-footer {
+    background-image: url('../img/image-footer.png');
+    background-size: cover;
+    height: 55vh;
+}
+
+.bg-blue {
+    background-color: #121637;
+}
+
+.bg-blue-light {
+    background-color: #4182E8;
+}
+

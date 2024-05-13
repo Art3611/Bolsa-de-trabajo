@@ -23,7 +23,7 @@ a un nivel simple para manterner la organizacion del codigo y optimizar el desar
 │  │  ├── error.php
 │  │  └── main.php
 │  ├── lib
-│  │  └── app.php
+│  │  └── app.php]
 │  ├── models
 │  ├── public
 │  │  └── css

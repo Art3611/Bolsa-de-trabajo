@@ -65,6 +65,29 @@ class User extends Model {
     }
 
     public function login($data){
-       
+        if(!filter_var($data['email'], FILTER_VALIDATE_EMAIL)){
+            return "Email no válido";
+        }
+
+        // Busca al usuario por su correo electrónico
+        $query = $this->db->connect()->prepare('SELECT * FROM usuarios WHERE email = :email');
+        $query->execute(['email' => $data['email']]);
+        $user = $query->fetch(PDO::FETCH_ASSOC);
+
+        // Verifica si se encontró un usuario con ese correo electrónico
+        if($user){
+        // Comprueba si la contraseña coincide
+        if(password_verify($data['password'], $user['password'])){
+            // Las credenciales son válidas, puedes iniciar sesión aquí
+            // Por ejemplo, podrías establecer una sesión de usuario o devolver algún tipo de token de autenticación
+            return 'exito';
+        } else {
+            // La contraseña no coincide
+            return 'contraseña_invalida';
+        }
+    } else {
+        // No se encontró ningún usuario con ese correo electrónico
+        return 'usuario_no_encontrado';
     }
+  }
 }

@@ -1,18 +1,12 @@
 <?php 
 
-
 class User extends Model {
 
-    private $username;
     private $password;
     private $rol;
 
     public function __construct(){
         parent::__construct();
-    }
-
-    public function setUsername($username){
-        $this->username = $username;
     }
 
     /**
@@ -29,23 +23,48 @@ class User extends Model {
         $this->rol = $rol;
     }
 
-
     public function register($data){
-        // Hashear la contranseña
+        if(!filter_var($data['email'], FILTER_VALIDATE_EMAIL)){
+            return "Email no válido";
+        }
+
+        // Checa si el email ya está registrado
+        $query = $this->db->connect()->prepare('SELECT * FROM usuarios WHERE email = :email');
+        $query->execute(['email' => $data['email']]);
+        $existeEmail = $query->fetch(PDO::FETCH_ASSOC);
+
+        $query = $this->db->connect()->prepare('SELECT * FROM usuarios WHERE nombre = :nombre');
+        $query->execute(['nombre' => $data['nombre']]);
+        $existeUsuario = $query->fetch(PDO::FETCH_ASSOC);
+
+        if($existeEmail){
+            return  'email_existe';
+        }
+
+        if($existeUsuario){
+            return 'usuario_existe';
+        }
+
+        // Hash la contraseña
         $this->hashPassword($data['password']);
+        $this->setRol(1);
         $query = $this->db->connect()->prepare('INSERT INTO usuarios (nombre, email, password, rol_id )
                                                 VALUES(:nombre, :email, :password, :rol_id)');
-        //Registrar un usuario
+        // Registrar usuario
         try {
             $query->execute([
                 'nombre' => $data['nombre'],
                 'email' => $data['email'],
                 'password' => $this->password,
-                'rol_id' => 1
+                'rol_id' => $this->rol
             ]);
-            return true;
+            return 'exito';
         } catch (PDOException $e) {
             return false;
         }
+    }
+
+    public function login($data){
+       
     }
 }

@@ -2,7 +2,7 @@
 
 require_once '/opt/lampp/htdocs/proyectointegrado2t2024-DiosTeOdia/bolsa-trabajo/models/User.php';
 
-class Register extends Controller {
+class Registro extends Controller {
 
     public $view;
     public $mensaje;
@@ -13,8 +13,8 @@ class Register extends Controller {
     }
 
     public function render(){
-        $this->view->tituloPage = "Inicio de sesión";
-        $this->view->render('register/index');
+        $this->view->tituloPage = "Registro de usuario";
+        $this->view->render('registro/index');
     }
 
     public function registerUser(){

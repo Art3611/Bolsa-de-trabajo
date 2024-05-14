@@ -22,3 +22,10 @@
     background-color: #4182E8;
 }
 
+@media (width < 528px) {
+    .bg-footer {
+        height: 115vh;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+}

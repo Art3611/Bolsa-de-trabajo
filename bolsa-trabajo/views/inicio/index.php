@@ -16,40 +16,42 @@
         </article>
     </section>
 
-    <section>
+    <section class='mt-10 p-10 md:p-20'>
         <h1 class='text-5xl text-center'>Trabajos recomendados</h1>
-        <p class='text-center'>Podemos ayudarte a encontrar tu trabako deseado</p>
+        <p class='text-center'>Podemos ayudarte a encontrar tu trabajo deseado.</p>
         <!-- Aqui van las ofertas de trabajo -->
     </section>
     
     <section>
-        <h2 class="text-center text-3xl font-bold">Como comenzar a trabajar</h2>
-        <article class='flex justify-center gap-20 mt-10'>
+        <h2 class="text-center text-3xl font-bold p-10 md:p-20">Como comenzar a trabajar</h2>
+
+        <article class='flex flex-col items-center md:flex-row justify-center gap-20 mt-10'>
         <div>
             <h3 class='text-center text-xl font-bold'>Registrate</h3>
-            <p class='text-gray'>Registrate en nuestra plataforma</p>
+            <p class='text-gray text-center'>Registrate en nuestra plataforma</p>
 
         </div>
         <div>
             <h3 class='text-center text-xl font-bold'>Crea tu perfil</h3>
-            <p class='text-gray'>Agrega tus datos personales y de contacto</p>
+            <p class='text-gray text-center'>Agrega tus datos personales y de contacto</p>
         </div>
         <div>
             <h3 class='text-center text-xl font-bold'>Aplica a un trabajo</h3>
-             <p class='text-gray'>Busca tu trabajo deseado</p>
+             <p class='text-gray text-center'>Busca tu trabajo deseado</p>
         </div>
     </article>  
 
-        <article class='bg-footer flex flex-col md:flex-row justify-around items-center p-20 gap-14 mt-24'>
-            <div class='bg-blue md:w-[500px] h-96 rounded-lg text-white p-10 md:p-20'>
-                <h3 class='text-2xl'>Soy candidato</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab numquam exercitationem laboriosam aspernatur adipisci fugit. Doloribus animi eveniet suscipit laborum. Optio consequuntur, voluptate odio obcaecati fugit aperiam placeat non sunt.</p>
+        <article class='bg-footer flex flex-col md:flex-row justify-center md:justify-around items-center py-0 px-10 md:p-20 gap-14 mt-10'>
+            <div class='bg-blue md:w-[500px] h-72 rounded-lg text-white p-5 p-10 md:p-20'>
+                <h3 class='text-3xl'>Soy candidato</h3>
+                <p class='text-sm md:text-base'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab numquam exercitationem laboriosam aspernatur adipisci fugit. Doloribus animi eveniet suscipit laborum. Optio consequuntur, voluptate odio obcaecati fugit aperiam placeat non sunt.</p>
             </div>
-            <div class='bg-blue-light  md:w-[500px] h-96 rounded-lg text-white p-10 md:p-20'>
-                <h3 class='text-2xl'>Soy empleador</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos delectus assumenda expedita. Perferendis dicta consequuntur porro quas, modi saepe suscipit nobis. Pariatur esse doloribus assumenda soluta accusantium dignissimos a quis?</p>
+            <div class='bg-blue-light  md:w-[500px] h-72 rounded-lg text-white p-10 md:p-20'>
+                <h3 class='text-3xl'>Soy empleador</h3>
+                <p class='text-sm md:text-base'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos delectus assumenda expedita. Perferendis dicta consequuntur porro quas, modi saepe suscipit nobis. Pariatur esse doloribus assumenda soluta accusantium dignissimos a quis?</p>
             </div>
-        </article>  
+        </article>
+        
     </section>
     
 </main> 

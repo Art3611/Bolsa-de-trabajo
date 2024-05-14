@@ -3,14 +3,14 @@
     <section class='bg-slider flex flex-col justify-center items-center'>
         <h1 class='text-center text-white text-3xl md:text-6xl'>Encuentra tu mejor trabajo</h1>
 
-        <article class='flex gap-x-14 mt-10'>
-            <div class='bg-[#D9D9D9] bg-opacity-20 md:w-32 h-32 cursor-pointer rounded-full flex justify-center items-center'>
+        <article class='flex flex-col md:flex-row gap-14 mt-10'>
+            <div class='bg-[#D9D9D9] bg-opacity-20 md:w-32 h-32 cursor-pointer rounded-full flex justify-center items-center p-5'>
                 <p class='text-white text-center font-semibold'>Finanzas</p>
             </div>
-                <div class='bg-[#D9D9D9] bg-opacity-20  md:w-32 h-32 cursor-pointer rounded-full flex justify-center items-center'>
+                <div class='bg-[#D9D9D9] bg-opacity-20  md:w-32 h-32 cursor-pointer rounded-full flex justify-center items-center p-5'>
                     <p class='text-white text-center font-semibold'>Diseño</p>
                 </div>
-            <div class='bg-[#D9D9D9] bg-opacity-20  md:w-32 h-32 cursor-pointer rounded-full flex justify-center items-center'>
+            <div class='bg-[#D9D9D9] bg-opacity-20  md:w-32 h-32 cursor-pointer rounded-full flex justify-center items-center p-5'>
                 <p class='text-white text-center font-semibold'>Desarrollo web</p>
             </div>
         </article>

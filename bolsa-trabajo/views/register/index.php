@@ -1,13 +1,13 @@
 <?php require 'views/partials/header.php';?>
-<main>
+<main class='flex flex-col justify-center items-center'>
 
     <div class="text-center">
       <?= $this->mensaje ?>
     </div>
 
     <h1>Registro de usuario</h1>
-
-    <form action="<?= constant('URL')?>auth/registerUser" method="POST">
+<div >
+<form action="<?= constant('URL')?>register/registerUser" method="POST" class='flex flex-col'>
         <label for="nombre">Nombre de usuario</label>
         <input type="text" name='nombre' required>
         <label for="email">Correo electronico</label>
@@ -16,5 +16,7 @@
         <input type="password" name='password' required>
         <button>Crear cuenta</button>
     </form>
+</div>
+
 </main>
 <?php require 'views/partials/footer.php'?>

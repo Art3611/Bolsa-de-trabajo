@@ -15,6 +15,12 @@
             </div>
         </article>
     </section>
+    <?php
+    require_once __DIR__ . '../../../controllers/userSesion.php';
+    $userSession = new UserSesion();
+    $user = $userSession->getCurrentUser(); // Obtiene el usuario actual
+    echo "Current user: " . $user;
+    ?>
 
     <section class='mt-10 p-10 md:p-20'>
         <h1 class='text-5xl text-center'>Trabajos recomendados</h1>
@@ -42,11 +48,11 @@
     </article>  
 
         <article class='bg-footer flex flex-col md:flex-row justify-center md:justify-around items-center py-0 px-10 md:p-20 gap-14 mt-10'>
-            <div class='bg-blue md:w-[500px] h-72 rounded-lg text-white p-5 p-10 md:p-20'>
+            <div class='bg-blue md:w-[500px] h-72 md:h-80 rounded-lg text-white p-5 p-10 md:p-20'>
                 <h3 class='text-3xl'>Soy candidato</h3>
                 <p class='text-sm md:text-base'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab numquam exercitationem laboriosam aspernatur adipisci fugit. Doloribus animi eveniet suscipit laborum. Optio consequuntur, voluptate odio obcaecati fugit aperiam placeat non sunt.</p>
             </div>
-            <div class='bg-blue-light  md:w-[500px] h-72 rounded-lg text-white p-10 md:p-20'>
+            <div class='bg-blue-light  md:w-[500px] h-72 md:h-80 rounded-lg text-white p-10 md:p-20'>
                 <h3 class='text-3xl'>Soy empleador</h3>
                 <p class='text-sm md:text-base'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos delectus assumenda expedita. Perferendis dicta consequuntur porro quas, modi saepe suscipit nobis. Pariatur esse doloribus assumenda soluta accusantium dignissimos a quis?</p>
             </div>
@@ -54,5 +60,5 @@
         
     </section>
     
-</main> 
+
 <?php require 'views/partials/footer.php'?>

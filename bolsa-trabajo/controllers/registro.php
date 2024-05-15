@@ -1,6 +1,6 @@
 <?php
 
-require_once '/opt/lampp/htdocs/proyectointegrado2t2024-DiosTeOdia/bolsa-trabajo/models/User.php';
+require_once __DIR__ . '/../models/User.php';
 
 class Registro extends Controller {
 
@@ -31,7 +31,6 @@ class Registro extends Controller {
             'password' => $password
         ]);
             
-
         if($resultado === 'exito'){
                 $mensaje = "Usuario registrado correctamente";
                 header('Location: '.constant('URL').'login');
@@ -45,5 +44,4 @@ class Registro extends Controller {
             $this->view->mensaje = $mensaje;
             $this->render();
     }
-
 }

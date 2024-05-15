@@ -4,6 +4,17 @@
             <a href="<?= constant('URL')?>/" class="text-[#2A56CB] hover:text-[#1E40AF]">Inicio</a>
             <a href="<?= constant('URL')?>trabajos/" class="text-[#2A56CB] hover:text-[#1E40AF]">Trabajos</a>
             <a href="<?= constant('URL')?>empresas/" class="text-[#2A56CB] hover:text-[#1E40AF]">Empresas</a>
+            <?php
+            require_once __DIR__ .'../../../controllers/userSesion.php';
+            $userSession = new UserSesion();
+            $user = $userSession->getCurrentUser();
+
+            if ($user) {
+                // Si hay un usuario actual, muestra el botón
+                echo '<a  class="text-[#2A56CB] hover:text-[#1E40AF]" href="' . constant('URL') . 'login/logout">Salir</a>';
+            }
+            ?>
+            
         </div>
 
         <div class="flex flex-col gap-3">

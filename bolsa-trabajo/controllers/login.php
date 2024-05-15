@@ -1,6 +1,10 @@
 <?php
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 
-require_once '/opt/lampp/htdocs/proyectointegrado2t2024-DiosTeOdia/bolsa-trabajo/models/User.php';
+require_once __DIR__ . '/../controllers/userSesion.php';
+require_once __DIR__ . '/../models/User.php';
 
 class Login extends Controller {
     public $view;
@@ -22,25 +26,27 @@ class Login extends Controller {
             $email = $_POST['email'];
             $password = $_POST['password'];
             
-            $this->error = "";
-
+            // Inicializa la variable $error
+            $error = "";
+    
             // Llama al método login del modelo User para validar las credenciales
             $loginResult = $this->model->login([
                 'email' => $email,
                 'password' => $password
             ]);
-            
+    
             // Maneja el resultado de la autenticación
-            switch($loginResult){
-                case 'exito':
-                    // Las credenciales son válidas, redirige a la página de inicio o haz cualquier otra acción necesaria
-                    header('Location: '.constant('URL'));
-                    exit;
-                case 'contraseña_invalida':
+            switch(true) {
+                case is_array($loginResult) && isset($loginResult['status']) && $loginResult['status'] === 'exito':
+                $userSession = new UserSesion();
+                $userSession->setCurrentUser($loginResult['nombre']); 
+                header('Location: '.constant('URL'));
+                    break;
+                case $loginResult === 'contraseña_invalida':
                     $error = "Contraseña incorrecta";
                     break;
-                case 'usuario_no_encontrado':
-                    $error = "Esta cuenta no esta registrada";
+                case $loginResult === 'usuario_no_encontrado':
+                    $error = "Esta cuenta no está registrada";
                     break;
                 default:
                     $error = "Error en el inicio de sesión";
@@ -51,4 +57,12 @@ class Login extends Controller {
         $this->view->error = $error;
         $this->render();
     }
+    
+    public function logout(){
+        $userSession = new UserSesion();
+        $userSession->closeSession();
+        header('Location: '.constant('URL'));
+    }    
+
+  
 }

@@ -80,7 +80,12 @@ class User extends Model {
         if(password_verify($data['password'], $user['password'])){
             // Las credenciales son válidas, puedes iniciar sesión aquí
             // Por ejemplo, podrías establecer una sesión de usuario o devolver algún tipo de token de autenticación
-            return 'exito';
+            return [
+                'status' => 'exito',
+                'user_id' => $user['id'], // Suponiendo que 'id' es el campo que contiene el ID del usuario en tu tabla de usuarios
+                'nombre' => $user['nombre'], // Suponiendo que 'nombre' es el campo que contiene el nombre del usuario
+                // Puedes agregar más campos de usuario aquí según sea necesario
+            ];
         } else {
             // La contraseña no coincide
             return 'contraseña_invalida';

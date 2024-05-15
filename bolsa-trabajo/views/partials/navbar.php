@@ -1,7 +1,7 @@
 <header>
     <nav class="flex justify-between items-center px-5 sm:px-20 py-5 border border-b-2">
         <div class="flex gap-5">
-            <a href="<?= constant('URL')?>/" class="text-[#000] hover:text-[#1E40AF]">Inicio</a>
+            <a href="<?= constant('URL')?>" class="text-[#000] hover:text-[#1E40AF]">Inicio</a>
             <a href="<?= constant('URL')?>trabajos/" class="text-[#000] hover:text-[#1E40AF]">Trabajos</a>
             <a href="<?= constant('URL')?>empresas/" class="text-[#000] hover:text-[#1E40AF]">Empresas</a>
         </div>
@@ -25,7 +25,7 @@
                     <a href="' . constant('URL') . 'login/" class="text-[#2A56CB] hover:text-[#1E40AF]">Iniciar Sesión</a>
                 </div>
                 <div id="register-button" class="sm:flex hidden gap-x-5 bg-[#DCE8F8] p-2 rounded-lg mt-1 z-10 hidden">
-                    <a href="' . constant('URL') . 'registro/" class="text-[#2A56CB] hover:text-[#1E40AF]">Registrarme</a>
+                    <a href="' . constant('URL') . 'registroUsuario/" class="text-[#2A56CB] hover:text-[#1E40AF]">Registrarme</a>
                 </div>';
                 }
             ?>

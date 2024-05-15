@@ -1,9 +1,14 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+require_once __DIR__ . '/../models/User.php';
 
 /**
  * Controlador para el registro de usuarios.
  */
-class Registro extends Controller {
+class RegistroUsuario extends Controller {
 
     public $view;
     public $mensaje;
@@ -22,7 +27,7 @@ class Registro extends Controller {
      */
     public function render(){
         $this->view->tituloPage = "Registro de usuario";
-        $this->view->render('registro/index');
+        $this->view->render('registroUsuario/index');
     }
 
     /**

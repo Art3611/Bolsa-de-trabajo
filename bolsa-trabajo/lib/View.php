@@ -8,6 +8,7 @@
  */
 class View {
     public $tituloPage;
+    public $error;
 
     /**
      * Constructor de la clase View

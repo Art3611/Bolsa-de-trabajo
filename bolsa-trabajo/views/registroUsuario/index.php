@@ -4,7 +4,7 @@
 <div class='bg-[#F3F6FB] md:w-[725px] md:h-[650px] p-10 rounded-lg'>
 <h1 class='text-xl text-center'>Registro de usuario</h1>
 
-<form action="<?= constant('URL')?>registro/registerUser" method="POST" class='flex flex-col gap-3 md:gap-6'>
+<form action="<?= constant('URL')?>registroUsuario/registerUser" method="POST" class='flex flex-col gap-3 md:gap-6'>
         <label for="nombre">Nombre de usuario <span class='text-red-500'>*</span></label>
         <input type="text" name='nombre' class=' h-10 md:h-16 rounded-lg' required>
 

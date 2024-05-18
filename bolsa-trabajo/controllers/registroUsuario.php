@@ -33,7 +33,7 @@ class RegistroUsuario extends Controller {
     /**
      * Registra un nuevo usuario.
      */
-    public function registerUser(){
+    public function registroUser(){
         $mensaje = "";
         $error = "";
         

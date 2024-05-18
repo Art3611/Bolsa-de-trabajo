@@ -4,7 +4,7 @@
 <div class='bg-[#F3F6FB] md:w-[725px] md:h-[550px] p-10 rounded-lg'>
 <h1 class='text-xl text-center font-bold'>Iniciar sesion</h1>
 
-<form action="<?= constant('URL')?>login/loginUser" method="POST" class='flex flex-col gap-3 md:gap-6'>
+<form action="<?= constant('URL')?>login/login" method="POST" class='flex flex-col gap-3 md:gap-6'>
         <label for="email">Correo electronico <span class='text-red-500'>*</span></label>
         <input type="email" name='email' class='h-10 md:h-16 rounded-lg' required>
 

@@ -1,8 +1,7 @@
 # Documentacion de la aplicacion bolsa de trabajo
-
-# ToDos
-
-- crear la tabla para cuentas de empresa
+Generalmente siguiendo las buenas practicas de programacion todo el codigo de la
+aplicacion se encuentra documentado con comentarios para explicar que es lo que 
+hace cada clase y metodo de nuestra aplicacion
 
 ## Descripcion
 

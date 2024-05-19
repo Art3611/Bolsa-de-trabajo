@@ -3,6 +3,7 @@ Generalmente siguiendo las buenas practicas de programacion todo el codigo de la
 aplicacion se encuentra documentado con comentarios para explicar que es lo que 
 hace cada clase y metodo de nuestra aplicacion
 
+
 ## Descripcion
 
 Se trata de una aplicacion que hace la funcion de una bolsa de trabajo

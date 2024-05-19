@@ -27,36 +27,33 @@ class Login extends Controller {
      *
      */
     public function login() {
-        // Verifica si se enviaron datos del formulario de inicio de sesión
         if(isset($_POST['email']) && isset($_POST['password'])){
             $email = $_POST['email'];
             $password = $_POST['password'];
-
-            // Inicializa la variable $error
             $error = "";
-
-            // Primero, intenta encontrar al usuario en la tabla de usuarios
+    
+            // Intenta encontrar al usuario en la tabla de usuarios
             $user = $this->userModel->getUserByEmail($email);
-
+    
             if($user) {
-                // Si el usuario existe, verifica la contraseña
                 if(password_verify($password, $user['password'])) {
                     $userSession = new UserSesion();
-                    $userSession->setCurrentUser($user['nombre']); 
+                    //Devolvemos nombre y rol en la sesion
+                    $userSession->setCurrentUser($user['nombre'], $user['rol_id']); 
                     header('Location: '.constant('URL'));
                     exit();
                 } else {
                     $error = 'contraseña_invalida';
                 }
             } else {
-                // Si no se encuentra al usuario, intenta encontrar a la empresa
+                // Intenta encontrar a la empresa
                 $empresa = $this->empresaModel->getEmpresaByEmail($email);
-
+    
                 if($empresa) {
-                    // Si la empresa existe, verifica la contraseña
                     if(password_verify($password, $empresa['password'])) {
                         $userSession = new UserSesion();
-                        $userSession->setCurrentUser($empresa['nombre_empresa'], 'empresa');
+                        //Devolvemos nombre y rol en la sesion
+                        $userSession->setCurrentUser($empresa['nombre_empresa'], $empresa['rol_id']); // Asumiendo que también hay un rol para la empresa
                         header('Location: '.constant('URL'));
                         exit();
                     } else {
@@ -66,12 +63,12 @@ class Login extends Controller {
                     $error = 'usuario_no_encontrado';
                 }
             }
-
-            // Si llega aquí, hubo algún error
+    
+            // Si hay un error
             $this->view->error = $this->getErrorMsg($error);
             $this->render();
         } else {
-            // Si no se enviaron los datos del formulario, muestra el formulario de inicio de sesión
+            // Si no se enviaron los datos del formulario
             $this->view->error = $this->getErrorMsg('datos_no_enviados');
             $this->render();
         }

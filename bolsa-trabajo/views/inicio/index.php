@@ -1,4 +1,5 @@
 <?php require 'views/partials/header.php'?>
+
 <main class='flex flex-col'>
     <section class='bg-slider flex flex-col justify-center items-center'>
         <h1 class='text-center text-white text-3xl md:text-6xl'>Encuentra tu mejor trabajo</h1>
@@ -15,12 +16,6 @@
             </div>
         </article>
     </section>
-    <?php
-    require_once __DIR__ . '../../../controllers/userSesion.php';
-    $userSession = new UserSesion();
-    $user = $userSession->getCurrentUser(); // Obtiene el usuario actual
-    echo "Current user: " . $user;
-    ?>
 
     <section class='mt-10 p-10 md:p-20'>
         <h1 class='text-5xl text-center'>Trabajos recomendados</h1>
@@ -60,5 +55,4 @@
         
     </section>
     
-
 <?php require 'views/partials/footer.php'?>

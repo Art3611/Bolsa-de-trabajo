@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 require_once __DIR__ . '/../models/Empresa.php';
 
@@ -25,22 +28,32 @@ class RegistroEmpresa extends Controller {
      * Si el registro es exitoso, redirige al usuario a la página de inicio de sesión. Si la empresa ya está registrada o el email 
      * ya está en uso, muestra un mensaje de error correspondiente.
      */
-    public function registroEmpresa() {
+    public function registrarEmpresa() {
         $mensaje = "";
         $error = "";
         
         $nombre = $_POST['nombre_empresa'];
+        $industria = $_POST['industria'];
+        $locacion = $_POST['locacion'];
+        $nif = $_POST['nif'];
+        $descripcion = $_POST['descripcion'];
+        $telefono = $_POST['telefono'];
         $email = $_POST['email'];
         $password = $_POST['password'];
 
         $resultado = $this->model->register([
             'nombre_empresa' => $nombre,
             'email' => $email,
-            'password' => $password
+            'password' => $password,
+            'industria' => $industria,
+            'locacion' => $locacion,
+            'nif' => $nif,
+            'descripcion' => $descripcion,
+            'telefono' => $telefono
         ]);
         
         if($resultado === 'empresa_registrada'){
-            header('Location: ' . constant('URL') . 'registrarDatosEmpresa');
+            header('Location: ' . constant('URL') . 'login');
             exit();
         }elseif($resultado === 'usuario_existe'){
             $error = "Empresa ya registrada";

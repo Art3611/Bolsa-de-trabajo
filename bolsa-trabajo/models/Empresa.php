@@ -61,14 +61,20 @@ class Empresa extends Model {
      * @return string El resultado de la operación de inserción. Puede ser 'usuario_registrado' si se insertó correctamente, o 'error_registro' si ocurrió un error.
      */
     private function insertUser($data){
-        $this->db->query('INSERT INTO empresas (nombre_empresa, email, password, rol_id )
-                        VALUES(:nombre_empresa, :email, :password, :rol_id)');
+        $this->db->query('INSERT INTO empresas (nombre_empresa, industria, locacion, nif, descripcion, telefono, email, password, rol_id )
+                        VALUES(:nombre_empresa, :industria, :locacion, :nif, :descripcion, :telefono, :email, :password, :rol_id)');
         $this->db->bind(':nombre_empresa', $data['nombre_empresa']);
         $this->db->bind(':email', $data['email']);
         $this->db->bind(':password', $data['password']);
         $this->db->bind(':rol_id', $data['rol_id']);
+        $this->db->bind(':industria', $data['industria']);
+        $this->db->bind(':locacion', $data['locacion']);
+        $this->db->bind(':nif', $data['nif']);
+        $this->db->bind(':descripcion', $data['descripcion']);
+        $this->db->bind(':telefono', $data['telefono']);
+
         if($this->db->execute()){
-            return 'usuario_registrado';
+            return 'empresa_registrada';
         } else {
             return 'error_registro';
         }

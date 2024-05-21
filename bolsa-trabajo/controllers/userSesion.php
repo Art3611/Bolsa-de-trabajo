@@ -1,5 +1,7 @@
 <?php
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 /**
  * Clase UserSesion
  * 
@@ -26,9 +28,10 @@ class UserSesion {
     public function getCurrentUser(){
         $user = isset($_SESSION['user']) ? $_SESSION['user'] : null;
         $rol = isset($_SESSION['rol_id']) ? $_SESSION['rol_id'] : null;
+        $descripcion = isset($_SESSION['descripcion']) ? $_SESSION['descripcion'] : null;
 
-        if ($user !== null && $rol !== null) {
-            return ['user' => $user, 'rol_id' => $rol];
+        if ($user !== null && $rol !== null && $descripcion !== null) {
+            return ['user' => $user, 'rol_id' => $rol, 'descripcion' => $descripcion];
         }
         return null;
     }
@@ -39,9 +42,10 @@ class UserSesion {
      * @param mixed $user El usuario actual.
      * @param int $rol_id El rol del usuario.
      */
-    public function setCurrentUser($user, $rol_id){
+    public function setCurrentUser($user, $rol_id, $descripcion){
         $_SESSION['user'] = $user;
         $_SESSION['rol_id'] = $rol_id;
+        $_SESSION['descripcion'] = $descripcion;
     }
   
 

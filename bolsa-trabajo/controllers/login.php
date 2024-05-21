@@ -43,7 +43,7 @@ class Login extends Controller {
                 if(password_verify($password, $user['password'])) {
                     $userSession = new UserSesion();
                     //Devolvemos nombre y rol en la sesion
-                    $userSession->setCurrentUser($user['nombre'], $user['rol_id']); 
+                    $userSession->setCurrentUser($user['nombre'], $user['rol_id'], $user['descripcion']); 
                     header('Location: '.constant('URL'));
                     exit();
                 } else {
@@ -57,8 +57,8 @@ class Login extends Controller {
                     if(password_verify($password, $empresa['password'])) {
                         $userSession = new UserSesion();
                         //Devolvemos nombre y rol en la sesion
-                        $userSession->setCurrentUser($empresa['nombre_empresa'], $empresa['rol_id']); // Asumiendo que también hay un rol para la empresa
-                        header('Location: '.constant('URL'));
+                        $userSession->setCurrentUser($empresa['nombre_empresa'], $empresa['rol_id'], $empresa['descripcion']); // Asumiendo que también hay un rol para la empresa
+                        header('Location: '.constant('URL'). 'perfilEmpresa');
                         exit();
                     } else {
                         $error = 'contraseña_invalida';

@@ -40,6 +40,7 @@ class RegistroUsuario extends Controller {
         $direccion = $_POST['direccion'];
         $email = $_POST['email'];
         $password = $_POST['password'];
+        $descripcion = $_POST['descripcion'];
 
         // Llama al método register del modelo User para registrar un nuevo usuario
         $resultado = $this->model->register([
@@ -48,7 +49,8 @@ class RegistroUsuario extends Controller {
             'password' => $password,
             'apellido' => $apellido,
             'nif' => $nif,
-            'direccion' => $direccion
+            'direccion' => $direccion,
+            'descripcion' => $descripcion,
         ]);
         
         // Maneja el resultado del registro

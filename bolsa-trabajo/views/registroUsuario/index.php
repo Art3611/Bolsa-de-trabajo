@@ -18,6 +18,9 @@
         </label>
         <input type="text" name='nif' class='h-10 md:h-16 rounded-lg' required>
 
+        <label for="descripcion">Descripcion<span class='text-red-500'>*</span></label>
+        <input type="text" name='descripcion' class=' h-10 md:h-16 rounded-lg' required>
+        
         <label for="direccion">Direccion
             <span class='text-red-500'>*</span>
          </label>

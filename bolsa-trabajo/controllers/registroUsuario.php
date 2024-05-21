@@ -56,6 +56,7 @@ class RegistroUsuario extends Controller {
         // Maneja el resultado del registro
         if($resultado === 'usuario_registrado'){
             header('Location: '.constant('URL').'login');
+            exit();
         }elseif($resultado === 'usuario_existe'){
             $error = "Usuario ya registrado";
         }elseif($resultado === 'email_existe'){

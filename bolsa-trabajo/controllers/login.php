@@ -35,15 +35,15 @@ class Login extends Controller {
             $email = $_POST['email'];
             $password = $_POST['password'];
             $error = "";
-    
+
             // Intenta encontrar al usuario en la tabla de usuarios
             $user = $this->userModel->getUserByEmail($email);
-    
+
             if($user) {
                 if(password_verify($password, $user['password'])) {
                     $userSession = new UserSesion();
-                    //Devolvemos nombre y rol en la sesion
-                    $userSession->setCurrentUser($user['nombre'], $user['rol_id'], $user['descripcion']); 
+                    // Devolvemos nombre, rol y ID en la sesión
+                    $userSession->setCurrentUser($user['nombre'], $user['rol_id'], $user['descripcion'], $user['id']); 
                     header('Location: '.constant('URL'));
                     exit();
                 } else {
@@ -52,12 +52,12 @@ class Login extends Controller {
             } else {
                 // Intenta encontrar a la empresa
                 $empresa = $this->empresaModel->getEmpresaByEmail($email);
-    
+
                 if($empresa) {
                     if(password_verify($password, $empresa['password'])) {
                         $userSession = new UserSesion();
-                        //Devolvemos nombre y rol en la sesion
-                        $userSession->setCurrentUser($empresa['nombre_empresa'], $empresa['rol_id'], $empresa['descripcion']); // Asumiendo que también hay un rol para la empresa
+                        // Devolvemos nombre, rol y ID en la sesión
+                        $userSession->setCurrentUser($empresa['nombre_empresa'], $empresa['rol_id'], $empresa['descripcion'], $empresa['id']); 
                         header('Location: '.constant('URL'). 'perfilEmpresa');
                         exit();
                     } else {
@@ -67,7 +67,7 @@ class Login extends Controller {
                     $error = 'usuario_no_encontrado';
                 }
             }
-    
+
             // Si hay un error
             $this->view->error = $this->getErrorMsg($error);
             $this->render();

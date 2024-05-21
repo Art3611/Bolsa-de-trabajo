@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/../controllers/userSesion.php';
+
 /**
  * Clase Empresa
  * 
@@ -7,6 +9,7 @@
  * Proporciona métodos para interactuar con la tabla 'empresas'.
  */
 class Empresa extends Model {
+    private $userSession;
 
     /**
      * Constructor de la clase Empresa.
@@ -104,6 +107,38 @@ class Empresa extends Model {
         $data['rol_id'] = $this->rol;
 
         return $this->insertUser($data);
+    }
+
+     /**
+     * Registra una nueva oferta laboral en la tabla 'ofertas'.
+     * 
+     * @param array $data Los datos de la oferta laboral a registrar.
+     * @return string El resultado de la operación de registro. Puede ser 'oferta_publicada' si se registró correctamente, o 'error_publicacion' si ocurrió un error.
+     */
+    public function registrarOferta($data){
+        $this->userSession = new UserSesion();
+        $empresaId = $this->userSession->getUserId();
+
+        if ($empresaId === null) {
+            throw new Exception('Error: empresa_id es NULL');
+        }
+
+        $this->db->query('INSERT INTO ofertas_trabajo (nombre_trabajo, descripcion, ubicacion, contrato, salario, duracion, requisitos, empresa_id)
+                        VALUES(:nombre_trabajo, :descripcion, :ubicacion, :contrato, :salario, :duracion, :requisitos, :empresa_id)');
+        $this->db->bind(':nombre_trabajo', $data['nombre_trabajo']);
+        $this->db->bind(':descripcion', $data['descripcion']);
+        $this->db->bind(':ubicacion', $data['ubicacion']);
+        $this->db->bind(':contrato', $data['contrato']);
+        $this->db->bind(':salario', $data['salario']);
+        $this->db->bind(':duracion', $data['duracion']);
+        $this->db->bind(':requisitos', $data['requisitos']);
+        $this->db->bind(':empresa_id', $empresaId);
+
+        if($this->db->execute()){
+            return 'oferta_publicada';
+        } else {
+            return 'error_publicacion';
+        }
     }
 }
 

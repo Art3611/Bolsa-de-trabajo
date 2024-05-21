@@ -17,17 +17,7 @@ class UserSesion {
         }
     }
 
-       /**
-     * Establece el usuario actual y el rol en la sesión.
-     * 
-     * @param mixed $user El usuario actual.
-     * @param int $rol_id El rol del usuario.
-     */
-    public function setCurrentUser($user, $rol_id){
-        $_SESSION['user'] = $user;
-        $_SESSION['rol_id'] = $rol_id;
-    }
-
+    
     /**
      * Obtiene el usuario actual de la sesión.
      * 
@@ -42,6 +32,18 @@ class UserSesion {
         }
         return null;
     }
+
+       /**
+     * Establece el usuario actual y el rol en la sesión.
+     * 
+     * @param mixed $user El usuario actual.
+     * @param int $rol_id El rol del usuario.
+     */
+    public function setCurrentUser($user, $rol_id){
+        $_SESSION['user'] = $user;
+        $_SESSION['rol_id'] = $rol_id;
+    }
+  
 
         /**
      * Obtiene el rol del usuario actual.

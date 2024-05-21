@@ -39,9 +39,9 @@ class RegistroEmpresa extends Controller {
             'password' => $password
         ]);
         
-        if($resultado === 'exito'){
-            $mensaje = "Empresa registrada correctamente";
-            header('Location: '.constant('URL').'login');
+        if($resultado === 'empresa_registrada'){
+            header('Location: ' . constant('URL') . 'registrarDatosEmpresa');
+            exit();
         }elseif($resultado === 'usuario_existe'){
             $error = "Empresa ya registrada";
         }elseif($resultado === 'email_existe'){

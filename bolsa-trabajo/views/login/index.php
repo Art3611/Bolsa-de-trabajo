@@ -1,7 +1,7 @@
 <?php require 'views/partials/header.php';?>
 <main class='flex flex-col justify-center items-center p-10 md:p-20'>
 
-<div class='bg-[#F3F6FB] md:w-[725px] md:h-[550px] p-10 rounded-lg'>
+<div class='bg-[#F3F6FB] md:w-[725px] p-10 rounded-lg'>
 <h1 class='text-xl text-center font-bold'>Iniciar sesion</h1>
 
 <form action="<?= constant('URL')?>login/login" method="POST" class='flex flex-col gap-3 md:gap-6'>

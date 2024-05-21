@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 require_once __DIR__ . '/../models/User.php';
 
@@ -33,11 +30,14 @@ class RegistroUsuario extends Controller {
     /**
      * Registra un nuevo usuario.
      */
-    public function registroUser(){
+    public function registrarUsuario(){
         $mensaje = "";
         $error = "";
         
         $nombre = $_POST['nombre'];
+        $apellido = $_POST['apellido'];
+        $nif = $_POST['nif'];
+        $direccion = $_POST['direccion'];
         $email = $_POST['email'];
         $password = $_POST['password'];
 
@@ -45,12 +45,14 @@ class RegistroUsuario extends Controller {
         $resultado = $this->model->register([
             'nombre' => $nombre,
             'email' => $email,
-            'password' => $password
+            'password' => $password,
+            'apellido' => $apellido,
+            'nif' => $nif,
+            'direccion' => $direccion
         ]);
         
         // Maneja el resultado del registro
-        if($resultado === 'exito'){
-            $mensaje = "Usuario registrado correctamente";
+        if($resultado === 'usuario_registrado'){
             header('Location: '.constant('URL').'login');
         }elseif($resultado === 'usuario_existe'){
             $error = "Usuario ya registrado";

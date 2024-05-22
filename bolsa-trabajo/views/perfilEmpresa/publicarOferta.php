@@ -1,7 +1,8 @@
 <?php require 'views/partials/header.php'; ?>
- <main class='flex flex-col justify-center items-center p-10 md:p-20'>
-
- <div class='bg-[#F3F6FB] md:w-[725px] p-10 rounded-lg'>
+ <main class='flex flex-col md:flex-row'>
+ <?php require 'views/partials/sideBarEmpresa.php';?>
+<div class=' flex-col justify-center items-center p-10 md:p-20'>
+<div class='bg-[#F3F6FB] md:w-[725px] p-10 rounded-lg'>
  <h1 class='text-xl text-center'>Publicar oferta</h1>
 
  <form action="<?= constant('URL')?>perfilEmpresa/registrarOferta" method="POST" class='flex flex-col gap-3 md:gap-5'>
@@ -28,7 +29,8 @@
 
     <button class='p-5 rounded-lg text-white bg-blue-500 mt-10'>Publicar oferta</button>
 
-</form>
+      </form>
+    </div>
 </div>
 
 </main>

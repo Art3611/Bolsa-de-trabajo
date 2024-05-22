@@ -1,12 +1,6 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 require 'views/partials/header.php';
 include_once __DIR__ . '../../../models/Ofertas.php';
-
-
 ?>
 
 <main class='flex flex-col'>
@@ -30,9 +24,9 @@ include_once __DIR__ . '../../../models/Ofertas.php';
         <h1 class='text-5xl text-center'>Trabajos recomendados</h1>
         <p class='text-center'>Podemos ayudarte a encontrar tu trabajo deseado.</p>
 
-        <article class='mt-10'>
+        <article class='mt-10 '>
              <!-- Aqui van las ofertas de trabajo -->
-     <div class='flex flex-wrap justify-center items-center gap-10'>
+     <div class='grid grid-cols-2  justify-between justify-items-center gap-10'>
         <?php
             foreach($this->ofertas as $row){
                 $oferta = new Oferta();
@@ -48,7 +42,7 @@ include_once __DIR__ . '../../../models/Ofertas.php';
                 </div>
                 <div class='flex justify-between'>
                     <span class='bg-blue-light p-2 rounded-lg text-white'><?= $oferta->duracion ?></span>
-                    <button class='p-2 bg-green-500 rounded-lg text-white'>Ver oferta</button>
+                    <a href="<?= constant('URL') . 'ofertas/verOferta/' . $oferta->id ?> " class='p-2 bg-green-500 rounded-lg text-white'>Ver oferta</a>
                 </div>
             </div> <!-- Cierre del contenedor de la tarjeta -->
         <?php } ?>

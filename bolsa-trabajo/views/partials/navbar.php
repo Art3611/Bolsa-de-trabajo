@@ -2,7 +2,7 @@
     <nav class="flex justify-between items-center px-5 sm:px-20 py-5 border border-b-2">
         <div class="flex gap-5">
             <a href="<?= constant('URL')?>" class="text-[#000] hover:text-[#1E40AF]">Inicio</a>
-            <a href="<?= constant('URL')?>trabajos/" class="text-[#000] hover:text-[#1E40AF]">Trabajos</a>
+            <a href="<?= constant('URL')?>ofertas/" class="text-[#000] hover:text-[#1E40AF]">Trabajos</a>
             <a href="<?= constant('URL')?>empresas/" class="text-[#000] hover:text-[#1E40AF]">Empresas</a>
         </div>
 

@@ -45,6 +45,7 @@ class Ofertas extends Controller {
 
             if ($oferta) {
                 $this->view->oferta = $oferta;
+                $this->view->tituloPage = "Detalles de la oferta";
                 $this->view->render('ofertas/detalle');
             } else {
                echo "Oferta no encontrada";

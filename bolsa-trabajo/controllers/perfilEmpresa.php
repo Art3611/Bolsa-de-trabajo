@@ -27,10 +27,18 @@ class PerfilEmpresa extends Controller {
         }
     }
 
+    /**
+     * Muestra la vista para publicar una oferta de trabajo
+     *
+     */
     public function publicarOferta(){
         $this->view->render('perfilEmpresa/publicarOferta');
     }
 
+    /**
+     * Registra una oferta de trabajo en la base de datos
+    *
+    */
     public function registrarOferta(){
         //Registrar los datos de la oferta aqui
         $nombre = $_POST['nombre_trabajo'];

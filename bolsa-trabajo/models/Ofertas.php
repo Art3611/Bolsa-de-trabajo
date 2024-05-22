@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Clase Oferta que representa una oferta de trabajo.
+ */
 class Oferta {
     public $id;
     public $nombre_trabajo;
@@ -18,6 +20,9 @@ class Oferta {
     public $duracion;
     public $requisitos;
 
+    /**
+     * Constructor de la clase Oferta.
+     */
     public function __construct()
     {
         

@@ -19,6 +19,7 @@ class Inicio extends Controller{
     $ofertas  = $this->model->get();
 
     $this->view->tituloPage= "Inicio";
+    // Renderizar las ofertas en la pagina de inico
     $this->view->ofertas = $ofertas;
     $this->view->render('inicio/index');
   }

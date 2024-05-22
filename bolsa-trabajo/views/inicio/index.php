@@ -1,4 +1,13 @@
-<?php require 'views/partials/header.php'?>
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+require 'views/partials/header.php';
+include_once __DIR__ . '../../../models/Ofertas.php';
+
+
+?>
 
 <main class='flex flex-col'>
     <section class='bg-slider flex flex-col justify-center items-center'>
@@ -21,49 +30,30 @@
         <h1 class='text-5xl text-center'>Trabajos recomendados</h1>
         <p class='text-center'>Podemos ayudarte a encontrar tu trabajo deseado.</p>
 
-        <!-- Aqui van las ofertas de trabajo -->
-        <div>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre del Trabajo</th>
-                <th>Descripción</th>
-                <th>Ubicación</th>
-                <th>Contrato</th>
-                <th>Salario</th>
-                <th>Duración</th>
-                <th>Requisitos</th>
-            
-            </tr>
-        </thead>
-        <tbody id='tbody-ofertas'>
-            <?php
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-                include_once __DIR__ . '../../../models/Ofertas.php';
-                foreach($this->ofertas as $row){
-                    $oferta = new Oferta();
-                    $oferta = $row;
-
-            ?>
-            <tr id='fila-<?= $oferta->id; ?>'>
-                <td><?= $oferta->id ?></td>
-                <td><?= $oferta->nombre_trabajo ?></td>
-                <td><?= $oferta->descripcion ?></td>
-                <td><?= $oferta->ubicacion ?></td>
-                <td><?= $oferta->contrato ?></td>
-                <td><?= $oferta->salario ?></td>
-                <td><?= $oferta->duracion ?></td>
-                <td><?= $oferta->requisitos ?></td>
-                
-            </tr>
-            <?php } ?>
-        </tbody>
-    </table>
+        <article class='mt-10'>
+             <!-- Aqui van las ofertas de trabajo -->
+     <div class='flex flex-wrap justify-center items-center gap-10'>
+        <?php
+            foreach($this->ofertas as $row){
+                $oferta = new Oferta();
+                $oferta = $row;
+        ?>
+            <div class="border p-4 rounded-lg mb-5 md:w-96"> <!-- Añadí un contenedor para cada tarjeta -->
+                <div>
+                    <h3 class='font-semibold'><?= $oferta->nombre_trabajo ?></h3>
+                </div>
+                <div>
+                    <span class='text-gray'><?= $oferta->ubicacion ?></span>
+                    <span class='text-gray'><?= $oferta->salario ?></span>
+                </div>
+                <div class='flex justify-between'>
+                    <span class='bg-blue-light p-2 rounded-lg text-white'><?= $oferta->duracion ?></span>
+                    <button class='p-2 bg-green-500 rounded-lg text-white'>Ver oferta</button>
+                </div>
+            </div> <!-- Cierre del contenedor de la tarjeta -->
+        <?php } ?>
+        </div>
+        </article>
     </section>
     
     <section>

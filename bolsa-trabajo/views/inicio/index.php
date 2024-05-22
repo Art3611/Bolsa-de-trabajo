@@ -20,7 +20,50 @@
     <section class='mt-10 p-10 md:p-20'>
         <h1 class='text-5xl text-center'>Trabajos recomendados</h1>
         <p class='text-center'>Podemos ayudarte a encontrar tu trabajo deseado.</p>
+
         <!-- Aqui van las ofertas de trabajo -->
+        <div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre del Trabajo</th>
+                <th>Descripción</th>
+                <th>Ubicación</th>
+                <th>Contrato</th>
+                <th>Salario</th>
+                <th>Duración</th>
+                <th>Requisitos</th>
+            
+            </tr>
+        </thead>
+        <tbody id='tbody-ofertas'>
+            <?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+                include_once __DIR__ . '../../../models/Ofertas.php';
+                foreach($this->ofertas as $row){
+                    $oferta = new Oferta();
+                    $oferta = $row;
+
+            ?>
+            <tr id='fila-<?= $oferta->id; ?>'>
+                <td><?= $oferta->id ?></td>
+                <td><?= $oferta->nombre_trabajo ?></td>
+                <td><?= $oferta->descripcion ?></td>
+                <td><?= $oferta->ubicacion ?></td>
+                <td><?= $oferta->contrato ?></td>
+                <td><?= $oferta->salario ?></td>
+                <td><?= $oferta->duracion ?></td>
+                <td><?= $oferta->requisitos ?></td>
+                
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
     </section>
     
     <section>

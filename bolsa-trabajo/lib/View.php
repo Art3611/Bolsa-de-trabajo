@@ -10,6 +10,7 @@ class View {
     public $tituloPage;
     public $error;
     public $mensaje;
+    public $ofertas;
 
     /**
      * Constructor de la clase View

@@ -123,8 +123,8 @@ class Empresa extends Model {
             throw new Exception('Error: empresa_id es NULL');
         }
 
-        $this->db->query('INSERT INTO ofertas_trabajo (nombre_trabajo, descripcion, ubicacion, contrato, salario, duracion, requisitos, empresa_id)
-                        VALUES(:nombre_trabajo, :descripcion, :ubicacion, :contrato, :salario, :duracion, :requisitos, :empresa_id)');
+        $this->db->query('INSERT INTO ofertas_trabajo (nombre_trabajo, descripcion, ubicacion, contrato, salario, duracion, requisitos, empresa_id, fecha_publicacion)
+                        VALUES(:nombre_trabajo, :descripcion, :ubicacion, :contrato, :salario, :duracion, :requisitos, :empresa_id, NOW())');
         $this->db->bind(':nombre_trabajo', $data['nombre_trabajo']);
         $this->db->bind(':descripcion', $data['descripcion']);
         $this->db->bind(':ubicacion', $data['ubicacion']);

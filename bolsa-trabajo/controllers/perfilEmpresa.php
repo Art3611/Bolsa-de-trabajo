@@ -32,6 +32,7 @@ class PerfilEmpresa extends Controller {
      *
      */
     public function publicarOferta(){
+        $this->view->tituloPage = "Publicar oferta";
         $this->view->render('perfilEmpresa/publicarOferta');
     }
 

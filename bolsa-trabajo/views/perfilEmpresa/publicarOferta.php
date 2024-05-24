@@ -1,7 +1,10 @@
 <?php require 'views/partials/header.php'; ?>
- <main class='flex flex-col md:flex-row'>
- <?php require 'views/partials/sideBarEmpresa.php';?>
-<div class=' flex-col justify-center items-center p-10 md:p-20'>
+
+<main class='flex flex-col md:flex-row'>
+
+<?php require 'views/partials/sideBarEmpresa.php';?>
+
+<div class='p-10'>
 <div class='bg-[#F3F6FB] md:w-[725px] p-10 rounded-lg'>
  <h1 class='text-xl text-center'>Publicar oferta</h1>
 
@@ -25,7 +28,7 @@
     <input type="text" name='duracion' class=' h-10 md:h-16 rounded-lg' required>
 
     <label for="requisitos">Requisitos <span class='text-red-500'>*</span></label>
-    <textarea type="text" name='requisitos' class='h-10 md:h-16 rounded-lg' required> </textarea>
+    <textarea type="text" name='requisitos' class='h-10 md:h-16 rounded-lg resize-none' required></textarea>
 
     <button class='p-5 rounded-lg text-white bg-blue-500 mt-10'>Publicar oferta</button>
 

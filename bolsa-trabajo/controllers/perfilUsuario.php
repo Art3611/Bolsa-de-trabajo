@@ -24,6 +24,13 @@ class PerfilUsuario extends Controller {
             exit(); 
         }
     }
+
+    public function ofertasAplicadas(){
+        $this->view->tituloPage = "Ofertas aplicadas";
+        $this->view->render('perfilUsuario/ofertasAplicadas');
+    }
+
+
 }
 
 ?>

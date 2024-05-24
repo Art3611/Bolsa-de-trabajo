@@ -66,6 +66,17 @@ class PerfilEmpresa extends Controller {
         $this->render();
     }
 
+    public function ofertasPublicadas() {
+        $this->view->tituloPage = "Ofertas publicadas";
+        $this->view->render('perfilEmpresa/ofertasPublicadas');
+    }
+
+    public function ofertasAplicadas(){
+        $this->view->tituloPage = "Ofertas aplicadas";
+        $this->view->render('perfilEmpresa/ofertasAplicadas');
+
+    }
+
 }
 
 ?>

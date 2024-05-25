@@ -74,8 +74,8 @@ class User extends Model {
      * @return string El resultado de la inserción ('usuario_registrado' o 'error_registro').
      */
     private function insertUser($data){
-        $this->db->query('INSERT INTO usuarios (nombre, apellido, email, password, direccion, nif, descripcion, rol_id )
-                        VALUES(:nombre, :apellido, :email, :password, :direccion, :nif, :descripcion, :rol_id)');
+        $this->db->query('INSERT INTO usuarios (nombre, apellido, email, password, direccion, nif, descripcion, rol_id, fecha_creacion)
+                        VALUES(:nombre, :apellido, :email, :password, :direccion, :nif, :descripcion, :rol_id, NOW())');
         $this->db->bind(':nombre', $data['nombre']);
         $this->db->bind(':apellido', $data['apellido']);
         $this->db->bind(':email', $data['email']);

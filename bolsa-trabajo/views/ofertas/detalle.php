@@ -1,4 +1,11 @@
-<?php require 'views/partials/header.php'; ?>
+<?php 
+
+require 'views/partials/header.php';
+require_once __DIR__ . '../../../controllers/userSesion.php';
+$userSession = new UserSesion();
+$currentUser = $userSession->getCurrentUser();
+  
+?>
 
 <main class='md:h-screen'>
 <section class='bg-[#DCE8F8] h-32 flex justify-around items-center p-20'>
@@ -13,9 +20,19 @@
         <span class='text-green-500'><?= $this->oferta->salario ?></span>
     </article>
     </div>
-    <div class='p-5 bg-blue-500 rounded-lg text-white cursor-pointer'>
-        <a href="#">Aplicar al trabajo</a>
-    </div>
+
+    <?php 
+    if($currentUser && $currentUser['user']){
+        if($currentUser['rol_id'] == 1){
+            echo '
+            <div class="p-5 bg-blue-500 rounded-lg text-white cursor-pointer">
+               <a href="#">Aplicar al trabajo</a>
+            </div>';
+        }else {
+            echo '<div></div>';
+        }
+    }
+    ?>   
 </section>
 
 <section class='flex flex-col gap-yjustify-start items-start p-10 md:ml-72'>
@@ -28,7 +45,6 @@
         <article>
             <h3 class='font-bold'>Requisitos:</h3>
             <p><?= $this->oferta->requisitos ?></p>
-
         </article>
     </section>
 </section>

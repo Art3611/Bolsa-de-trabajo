@@ -1,5 +1,7 @@
 <?php 
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 /**
  * Clase User
  * 
@@ -15,6 +17,17 @@ class User extends Model {
     public function __construct(){
         parent::__construct();
     }   
+
+    public function aplicarOferta($ofertaId, $usuarioId){
+        $this->db->query('INSERT INTO aplicaciones (usuario_id, oferta_id, estado, fecha_aplicacion) VALUES (:usuario_id, :oferta_id, :estado, :fecha_aplicacion)');
+        $this->db->bind(':usuario_id', $usuarioId);
+        $this->db->bind(':oferta_id', $ofertaId);
+        $this->db->bind(':estado', 'pendiente');
+        $this->db->bind(':fecha_aplicacion', date('Y-m-d H:i:s'));
+    
+        return $this->db->execute();
+        
+    }
 
     /**
      * Obtiene un usuario por su email.

@@ -1,6 +1,10 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 require_once __DIR__ . '/userSesion.php';
+require_once __DIR__ . '/../models/User.php';
 
 class PerfilUsuario extends Controller {
 
@@ -10,6 +14,7 @@ class PerfilUsuario extends Controller {
     public function __construct(){
         parent::__construct();
         $this->userSession = new UserSesion();
+        $this->model = new User();
     }
 
     public function render(){
@@ -30,6 +35,16 @@ class PerfilUsuario extends Controller {
         $this->view->render('perfilUsuario/ofertasAplicadas');
     }
 
+    public function aplicarOferta(){
+        $ofertaId = $_POST['oferta_id'];
+
+        $usuarioId = $this->userSession->getCurrentUser()['usuario_id'];
+
+        
+        // var_dump($ofertaId, $usuarioId);
+        $this->model->aplicarOferta($ofertaId, $usuarioId);
+        header('Location: ' . constant('URL') . 'perfilUsuario/ofertasAplicadas');
+    }
 
 }
 

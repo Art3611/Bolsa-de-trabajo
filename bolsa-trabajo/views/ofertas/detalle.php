@@ -8,7 +8,7 @@ $currentUser = $userSession->getCurrentUser();
 ?>
 
 <main class='md:h-screen'>
-<section class='bg-[#DCE8F8] h-32 flex justify-around items-center p-20'>
+<section class='bg-[#DCE8F8] h-32 flex flex-col md:flex-row gap-5 justify-around items-center p-20'>
     <div>
     <h3 class='font-bold'><?= $this->oferta->nombre_trabajo ?></h3>
     <article class='flex gap-3'>
@@ -21,13 +21,16 @@ $currentUser = $userSession->getCurrentUser();
     </article>
     </div>
 
+    <!-- Mostrar el boton solo si la cuenta logueada es un usuario -->
     <?php 
     if($currentUser && $currentUser['user']){
         if($currentUser['rol_id'] == 1){
             echo '
-            <div class="p-5 bg-blue-500 rounded-lg text-white cursor-pointer">
-               <a href="#">Aplicar al trabajo</a>
-            </div>';
+            <form method="POST" action="' . constant("URL") . '/perfilUsuario/aplicarOferta">
+                 <input type="hidden" name="oferta_id" value=' . $this->oferta->id . '>
+             <button class="p-5 bg-blue-500 rounded-lg text-white cursor-pointer">Aplicar al trabajo</button>
+            </form>
+            ';
         }else {
             echo '<div></div>';
         }

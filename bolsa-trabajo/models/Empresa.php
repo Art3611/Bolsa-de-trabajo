@@ -17,6 +17,7 @@ class Empresa extends Model {
      */
     public function __construct(){
         parent::__construct();
+        $this->userSession = new UserSesion();
     }
 
     /**
@@ -138,6 +139,44 @@ class Empresa extends Model {
             return 'oferta_publicada';
         } else {
             return 'error_publicacion';
+        }
+    }
+
+     /**
+     * Obtener todas las ofertas de trabajo de una empresa específica.
+     * 
+     * @param int $id_empresa El ID de la empresa.
+     * @return array Un array de objetos Oferta que representa todas las ofertas de trabajo de la empresa encontradas.
+     */
+    public function getByEmpresaId($id_empresa){
+        $items = [];
+
+        try {
+            $this->db->query("SELECT * FROM ofertas_trabajo WHERE empresa_id = :id");
+            $this->db->bind(':id', $id_empresa);
+            $ofertas = $this->db->fetchAll();
+
+            if ($ofertas) {
+                foreach ($ofertas as $oferta) {
+                    $item = new Oferta();
+                    $item->id = $oferta['id'];
+                    $item->nombre_trabajo = $oferta['nombre_trabajo'];
+                    $item->descripcion = $oferta['descripcion'];
+                    $item->ubicacion = $oferta['ubicacion'];
+                    $item->salario = $oferta['salario'];
+                    $item->contrato = $oferta['contrato'];
+                    $item->duracion = $oferta['duracion'];
+                    $item->requisitos = $oferta['requisitos'];
+                    $items[] = $item;
+                }
+            } else {
+                echo "No se encontraron ofertas para esta empresa.";
+            }
+            
+            return $items;
+
+        } catch (PDOException $e) {
+            return [];
         }
     }
 }

@@ -27,27 +27,29 @@ include_once __DIR__ . '../../../models/Ofertas.php';
         <p class='text-center'>Podemos ayudarte a encontrar tu trabajo deseado.</p>
 
         <article class='mt-10 '>
+        <h1 class='text-center font-bold'><?= $this->mensaje ?></h1>
         <div class='grid grid-cols-1 md:grid-cols-2 justify-between justify-items-center gap-10'>
-            <?php
-                foreach($this->ofertas as $row){
-                    $oferta = new Oferta();
-                    $oferta = $row;
-            ?>
-            <!-- Contenedor targeta -->
-                <div class="border p-4 rounded-lg mb-5 w-80 md:w-96"> 
-                    <div>
-                        <h3 class='font-semibold'><?= $oferta->nombre_trabajo ?></h3>
-                    </div>
-                    <div>
-                        <span class='text-gray'><?= $oferta->ubicacion ?></span>
-                        <span class='text-gray'><?= $oferta->salario ?></span>
-                    </div>
-                    <div class='flex justify-between'>
-                        <span class='bg-blue-light p-2 rounded-lg text-white'><?= $oferta->duracion ?></span>
-                        <a href="<?= constant('URL') . 'ofertas/verOferta/' . $oferta->id ?> " class='p-2 bg-green-500 rounded-lg text-white'>Ver oferta</a>
-                    </div>
-                </div> 
-            <?php } ?>
+    <?php if (!empty($this->ofertas)) { ?>
+     <?php foreach($this->ofertas as $row) {
+        $oferta = new Oferta();
+        $oferta = $row;
+    ?>
+        <!-- Contenedor targeta -->
+        <div class="border p-4 rounded-lg mb-5 w-80 md:w-96"> 
+            <div>
+                <h3 class='font-semibold'><?= $oferta->nombre_trabajo ?></h3>
+            </div>
+            <div>
+                <span class='text-gray'><?= $oferta->ubicacion ?></span>
+                <span class='text-gray'><?= $oferta->salario ?></span>
+            </div>
+            <div class='flex justify-between'>
+                <span class='bg-blue-light p-2 rounded-lg text-white'><?= $oferta->duracion ?></span>
+                <a href="<?= constant('URL') . 'ofertas/verOferta/' . $oferta->id ?>" class='p-2 bg-green-500 rounded-lg text-white'>Ver oferta</a>
+            </div>
+        </div> 
+    <?php } } ?>
+    
             </div>
             </article>
     </section>

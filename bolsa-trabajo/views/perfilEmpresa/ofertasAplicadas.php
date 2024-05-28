@@ -19,8 +19,9 @@ include_once __DIR__ . '../../../models/Ofertas.php';
     </div>
     <?php
     }
-    } else {
-        echo 'No se encontraron aplicaciones.';
+    } else { ?>
+     <h1 class='font-bold text-center'>No hay ofertas con aspirantes</h1>
+   <?php  
     }
     ?>
 </section>

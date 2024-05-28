@@ -1,9 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-
 include_once 'models/Ofertas.php';
 
 /**
@@ -52,7 +47,7 @@ class QueryEmpresas extends Model {
                 }
             } else {
                 // Manejar el caso en el que no se encuentren ofertas
-                echo "No se encontraron ofertas.";
+                return false;
             }
             
             return $items;

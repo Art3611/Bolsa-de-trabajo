@@ -16,10 +16,15 @@ class Inicio extends Controller{
   }
   
   function render(){
-    $ofertas  = $this->model->get();
+    $ofertas = $this->model->get();
 
-    $this->view->tituloPage= "Inicio";
-    // Renderizar las ofertas en la pagina de inico
+    if (empty($ofertas)) {
+        $this->view->mensaje = 'No hay ofertas de trabajo disponibles en este momentos.';
+    } else {
+        $this->view->mensaje = 'Ofertas disponibles';
+    }
+    
+    $this->view->tituloPage = "Inicio";
     $this->view->ofertas = $ofertas;
     $this->view->render('inicio/index');
   }

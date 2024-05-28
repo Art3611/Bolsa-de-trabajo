@@ -12,6 +12,7 @@ class View {
     public $mensaje;
     public $ofertas;
     public $oferta;
+    public $aplicaciones;
 
     /**
      * Constructor de la clase View

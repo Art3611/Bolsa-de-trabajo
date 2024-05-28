@@ -1,6 +1,9 @@
 <?php
 
 require_once __DIR__ . '/../controllers/userSesion.php';
+require_once __DIR__ . '/../models/Aplicaciones.php';
+require_once __DIR__ . '/../models/Ofertas.php';
+
 
 /**
  * Clase Empresa
@@ -175,6 +178,34 @@ class Empresa extends Model {
             
             return $items;
 
+        } catch (PDOException $e) {
+            return [];
+        }
+    }
+
+
+    public function verOfertasAplicadas($id_empresa) {
+        $items = [];
+    
+        try {
+            $this->db->query("SELECT a.*, o.nombre_trabajo FROM aplicaciones a JOIN ofertas_trabajo o ON a.oferta_id = o.id WHERE o.empresa_id = :id");
+            $this->db->bind(':id', $id_empresa);
+            $aplicaciones = $this->db->fetchAll();
+    
+            if ($aplicaciones) {
+                foreach ($aplicaciones as $aplicacion) {
+                    $item = new Aplicaciones();
+                    $item->id = $aplicacion['id'];
+                    $item->nombre_trabajo = $aplicacion['nombre_trabajo'];
+                    // Asignar otros campos relevantes si es necesario
+                    $items[] = $item;
+                }
+            } else {
+                echo "No se encontraron aplicaciones para las ofertas de esta empresa.";
+            }
+    
+            return $items;
+    
         } catch (PDOException $e) {
             return [];
         }

@@ -7,6 +7,7 @@ error_reporting(E_ALL);
 require_once __DIR__ . '/userSesion.php';
 require_once __DIR__ . '/../models/Empresa.php';
 require_once __DIR__ . '/../models/Ofertas.php';
+require_once __DIR__ . '/../models/Aplicaciones.php';
 
 class PerfilEmpresa extends Controller {
 
@@ -18,6 +19,7 @@ class PerfilEmpresa extends Controller {
         $this->userSession = new UserSesion();
         $this->model = new Empresa();
         $this->view->ofertas = [];
+        $this->view->aplicaciones = [];
     }
 
     public function render(){
@@ -84,6 +86,15 @@ class PerfilEmpresa extends Controller {
         }
         
         $this->view->render('perfilEmpresa/ofertasPublicadas');
+    }
+
+    public function OfertasAplicadas() {
+        $empresaModel = new Empresa();
+        $ofertasAplicadas = $empresaModel->verOfertasAplicadas($this->userSession->getUserId());
+        
+        $view = new View();
+        $view->aplicaciones = $ofertasAplicadas;
+        $view->render('perfilEmpresa/ofertasAplicadas');
     }
 
 

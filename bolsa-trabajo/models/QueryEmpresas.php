@@ -41,7 +41,6 @@ class QueryEmpresas extends Model {
                     $item->id = $oferta['id'];
                     $item->nombre_trabajo = $oferta['nombre_trabajo'];
                     $item->descripcion = $oferta['descripcion'];
-                    // $item->empresa = $oferta['empresa'];
                     $item->ubicacion = $oferta['ubicacion'];
                     $item->salario = $oferta['salario'];
                     $item->contrato = $oferta['contrato'];
@@ -84,6 +83,7 @@ class QueryEmpresas extends Model {
                 // Crea una instancia de Oferta y asigna los valores
                 $item = new Oferta();
                 $item->id = $oferta['id'];
+                $item->empresa_id = $oferta['empresa_id'];
                 $item->nombre_trabajo = $oferta['nombre_trabajo'];
                 $item->descripcion = $oferta['descripcion'];
                 $item->ubicacion = $oferta['ubicacion'];
@@ -99,6 +99,22 @@ class QueryEmpresas extends Model {
 
         } catch (PDOException $e) {
             return null;
+        }
+    }
+
+    public function getByEmpresaId($id_oferta){
+        try {
+            $this->db->query("SELECT * FROM ofertas_trabajo WHERE id = :id");
+            $this->db->bind(':id', $id_oferta);
+            $ofertaData = $this->db->single();
+
+            $oferta = new Oferta();
+            $oferta->id = $ofertaData['empresa_id']; 
+
+            return $oferta;
+    
+        } catch (PDOException $e) {
+            return [];
         }
     }
 

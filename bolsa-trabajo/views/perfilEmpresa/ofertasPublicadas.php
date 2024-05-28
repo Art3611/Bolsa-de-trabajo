@@ -28,8 +28,7 @@ function truncateString($string, $length) {
 ?>
 
 <div class='h-20 w-96 flex justify-between items-center p-5 border border-1 rounded-lg'>
-    <h3 class='font-semibold'><h3 class='font-semibold'><?= truncateString($oferta->nombre_trabajo, 20) ?></h3></h3>
-
+  <h3 class='font-semibold'><?= truncateString($oferta->nombre_trabajo, 20) ?></h3>
     <div class='bg-blue-light p-2 rounded-lg text-white'>
         Editar
     </div>

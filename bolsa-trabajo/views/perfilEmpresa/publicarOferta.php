@@ -4,7 +4,8 @@
 
 <?php require 'views/partials/sideBarEmpresa.php';?>
 
-<div class='p-10'>
+<section class='mx-auto flex flex-col md:flex-row gap-10 p-10'>
+
 <div class='bg-[#F3F6FB] md:w-[725px] p-10 rounded-lg'>
  <h1 class='text-xl text-center'>Publicar oferta</h1>
 
@@ -34,9 +35,9 @@
 
       </form>
     </div>
-</div>
+
+</section>
 
 </main>
-
 
 <?php require 'views/partials/footer.php'?>

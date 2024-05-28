@@ -19,6 +19,7 @@ class Oferta {
     public $vacantes;
     public $duracion;
     public $requisitos;
+    public $empresa_id;
 
     /**
      * Constructor de la clase Oferta.

@@ -2,6 +2,9 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+require_once __DIR__ . '/../models/QueryEmpresas.php';
+
 /**
  * Clase User
  * 
@@ -10,18 +13,25 @@ error_reporting(E_ALL);
  */
 class User extends Model {
 
+    private $model;
+
     /**
      * Constructor de la clase User.
      * Llama al constructor de la clase padre.
      */
     public function __construct(){
         parent::__construct();
+        $this->model = new QueryEmpresas();
     }   
 
     public function aplicarOferta($ofertaId, $usuarioId){
-        $this->db->query('INSERT INTO aplicaciones (usuario_id, oferta_id, estado, fecha_aplicacion) VALUES (:usuario_id, :oferta_id, :estado, :fecha_aplicacion)');
+       $empresa_id = $this->model->getByEmpresaId($ofertaId);
+       var_dump($empresa_id);
+    
+        $this->db->query('INSERT INTO aplicaciones (usuario_id, oferta_id, estado, fecha_aplicacion, empresa_id ) VALUES (:usuario_id, :oferta_id, :estado, :fecha_aplicacion, :empresa_id)');
         $this->db->bind(':usuario_id', $usuarioId);
         $this->db->bind(':oferta_id', $ofertaId);
+        $this->db->bind(':empresa_id', $empresa_id->id);
         $this->db->bind(':estado', 'pendiente');
         $this->db->bind(':fecha_aplicacion', date('Y-m-d H:i:s'));
     

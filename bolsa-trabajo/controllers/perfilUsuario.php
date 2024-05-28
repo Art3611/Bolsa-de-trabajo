@@ -37,9 +37,7 @@ class PerfilUsuario extends Controller {
 
     public function aplicarOferta(){
         $ofertaId = $_POST['oferta_id'];
-
         $usuarioId = $this->userSession->getCurrentUser()['usuario_id'];
-
         
         // var_dump($ofertaId, $usuarioId);
         $this->model->aplicarOferta($ofertaId, $usuarioId);

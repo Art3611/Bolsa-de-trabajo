@@ -24,6 +24,12 @@ $currentUser = $userSession->getCurrentUser();
         <h2 class="font-bold text-xl">Sobre mi</h2>
         <p><?= $currentUser['descripcion'] ?></p>
     </div>
+    <div>
+        <h2 class='font-bold text-xl'>Numero de telefono</h2>
+        <p><?= $currentUser['telefono'] ?></p>
+    </div>
+    <div>
+</div>
 </div>
 
 </section>

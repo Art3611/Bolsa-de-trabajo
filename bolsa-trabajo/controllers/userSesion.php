@@ -28,9 +28,10 @@ class UserSesion {
         $rol = isset($_SESSION['rol_id']) ? $_SESSION['rol_id'] : null;
         $descripcion = isset($_SESSION['descripcion']) ? $_SESSION['descripcion'] : null;
         $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : null;
+        $telefono = isset($_SESSION['telefono']) ? $_SESSION['telefono'] : null;
 
-        if ($user !== null && $rol !== null && $descripcion !== null && $usuario_id !== null) {
-            return ['user' => $user, 'rol_id' => $rol, 'descripcion' => $descripcion, 'usuario_id' => $usuario_id];
+        if ($user !== null && $rol !== null && $descripcion !== null && $usuario_id !== null && $telefono !== null) {
+            return ['user' => $user, 'rol_id' => $rol, 'descripcion' => $descripcion, 'usuario_id' => $usuario_id, 'telefono' => $telefono];
         }
         return null;
     }
@@ -41,11 +42,12 @@ class UserSesion {
      * @param mixed $user El usuario actual.
      * @param int $rol_id El rol del usuario.
      */
-    public function setCurrentUser($user, $rol_id, $descripcion, $usuario_id){
+    public function setCurrentUser($user, $rol_id, $descripcion, $usuario_id, $telefono){
         $_SESSION['user'] = $user;
         $_SESSION['rol_id'] = $rol_id;
         $_SESSION['descripcion'] = $descripcion;
         $_SESSION['usuario_id'] = $usuario_id;
+        $_SESSION['telefono'] = $telefono;
     }
 
 

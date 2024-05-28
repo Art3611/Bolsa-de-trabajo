@@ -30,9 +30,11 @@
 
         <label for="password">Contraseña <span class='text-red-500'>*</span></label>
         <input type="password" name='password' class='h-10 md:h-16 rounded-lg' required>
+       
+        <label for="telefono">Numero de telefono<span class='text-red-500'>*</span></label>
+        <input type="text" name='telefono' class='h-10 md:h-16 rounded-lg' required>
 
         <span class='text-red-500 text-center'><?= $this->error ?></span>
-    
 
         <div class='text-center'>
             <span class='text-center mr-2'>Eres empresa?</span><a class='text-blue-500 inline-block' href='<?= constant('URL')?>registroEmpresa/'>Crear cuenta</a>

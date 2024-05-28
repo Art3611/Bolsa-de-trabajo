@@ -39,7 +39,7 @@ class Login extends Controller {
                 if(password_verify($password, $user['password'])) {
                     $userSession = new UserSesion();
                     // Devolvemos nombre, rol y ID en la sesión
-                    $userSession->setCurrentUser($user['nombre'], $user['rol_id'], $user['descripcion'], $user['id']); 
+                    $userSession->setCurrentUser($user['nombre'], $user['rol_id'], $user['descripcion'], $user['id'], $user['telefono']); 
                     header('Location: '.constant('URL'));
                     exit();
                 } else {
@@ -53,7 +53,7 @@ class Login extends Controller {
                     if(password_verify($password, $empresa['password'])) {
                         $userSession = new UserSesion();
                         // Devolvemos nombre, rol y ID en la sesión
-                        $userSession->setCurrentUser($empresa['nombre_empresa'], $empresa['rol_id'], $empresa['descripcion'], $empresa['id']); 
+                        $userSession->setCurrentUser($empresa['nombre_empresa'], $empresa['rol_id'], $empresa['descripcion'], $empresa['id'], $empresa['telefono']); 
                         header('Location: '.constant('URL'). 'perfilEmpresa');
                         exit();
                     } else {

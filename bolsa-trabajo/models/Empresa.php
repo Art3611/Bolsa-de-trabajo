@@ -151,14 +151,14 @@ class Empresa extends Model {
      * @param int $id_empresa El ID de la empresa.
      * @return array Un array de objetos Oferta que representa todas las ofertas de trabajo de la empresa encontradas.
      */
-    public function getByEmpresaId($id_empresa){
+    public function getByEmpresaId($id_empresa) {
         $items = [];
-
+    
         try {
             $this->db->query("SELECT * FROM ofertas_trabajo WHERE empresa_id = :id");
             $this->db->bind(':id', $id_empresa);
             $ofertas = $this->db->fetchAll();
-
+    
             if ($ofertas) {
                 foreach ($ofertas as $oferta) {
                     $item = new Oferta();
@@ -172,16 +172,15 @@ class Empresa extends Model {
                     $item->requisitos = $oferta['requisitos'];
                     $items[] = $item;
                 }
+                return $items;
             } else {
-                echo "No se encontraron ofertas para esta empresa.";
+                return false;
             }
-            
-            return $items;
-
         } catch (PDOException $e) {
             return [];
         }
     }
+    
 
 
     public function verOfertasAplicadas($id_empresa) {
@@ -201,7 +200,7 @@ class Empresa extends Model {
                     $items[] = $item;
                 }
             } else {
-                echo "No se encontraron aplicaciones para las ofertas de esta empresa.";
+                return false;
             }
     
             return $items;
@@ -209,6 +208,18 @@ class Empresa extends Model {
         } catch (PDOException $e) {
             return [];
         }
+    }
+
+    public function delete($id){
+        try {
+            $this->db->query("DELETE FROM ofertas_trabajo WHERE id = :id");
+            $this->db->bind(':id', $id);
+            $this->db->execute();
+
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }   
     }
 }
 

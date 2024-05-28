@@ -77,14 +77,20 @@ class PerfilEmpresa extends Controller {
     public function ofertasPublicadas() {
         $this->view->tituloPage = "Ofertas publicadas";
         $userId = $this->userSession->getUserId();
-        
+    
         if ($userId) {
             $ofertas = $this->model->getByEmpresaId($userId);
-            $this->view->ofertas = $ofertas;
+            if ($ofertas) {
+                $this->view->ofertas = $ofertas;
+            } else {
+                $this->view->ofertas = [];
+                $this->view->mensaje = 'No hay ofertas publicadas';
+            }
         } else {
             $this->view->ofertas = [];
+            $this->view->mensaje = 'Error al obtener el ID de usuario';
         }
-        
+    
         $this->view->render('perfilEmpresa/ofertasPublicadas');
     }
 
@@ -92,12 +98,26 @@ class PerfilEmpresa extends Controller {
         $empresaModel = new Empresa();
         $ofertasAplicadas = $empresaModel->verOfertasAplicadas($this->userSession->getUserId());
         
+        if(!$ofertasAplicadas){
+            $this->view->mensaje = "No hay ofertas aplicadas";
+        }
+
         $view = new View();
         $view->aplicaciones = $ofertasAplicadas;
         $view->render('perfilEmpresa/ofertasAplicadas');
     }
+    
 
+    public function eliminarOferta($param = null){
+        $oferta = $param[0];
 
+        if($this->model->delete($oferta)){
+            $this->view->mensaje = "oferta eliminada correctamente";
+        }else {
+        $this->view->mensaje = "No se pudo eliminar el alumno";
+        }
+        $this->render();
+    }
     
 }
 

@@ -10,7 +10,7 @@ include_once __DIR__ . '../../../models/Ofertas.php';
 <?php require 'views/partials/sideBarEmpresa.php';?>
 
 
-<section class='flex flex-col md:flex-row gap-10 p-10'>
+<section class='flex flex-col md:flex-row gap-10 p-10 md:h-screen'>
 
 <?php
 if (!empty($this->aplicaciones)) {

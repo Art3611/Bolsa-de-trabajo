@@ -17,7 +17,7 @@ function truncateString($string, $length) {
 
 <?php require 'views/partials/sideBarEmpresa.php'; ?>
 
-<section class='mx-auto flex gap-10 p-10'>
+<section class='mx-auto flex gap-10 p-10 md:h-screen'>
 
 <?php
  foreach($this->ofertas as $row

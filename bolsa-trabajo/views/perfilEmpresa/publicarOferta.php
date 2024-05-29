@@ -17,7 +17,7 @@
     <input type="text" name='descripcion' class=' h-10 md:h-16 rounded-lg' maxlength="560" minlength="20" required>
 
     <label for="ubicacion">Ubicacion del empleo <span class='text-red-500'>*</span></label>
-    <input type="text" name='ubicacion' class=' h-10 md:h-16 rounded-lg' minlength="10"  maxlength="255" required>
+    <input type="text" name='ubicacion' class=' h-10 md:h-16 rounded-lg' minlength="5"  maxlength="255" required>
 
     <label for="contrato">Tipo de contrato <span class='text-red-500'>*</span></label>
     <input type="text" name='contrato' class=' h-10 md:h-16 rounded-lg' minlength="5"  maxlength="255" required>

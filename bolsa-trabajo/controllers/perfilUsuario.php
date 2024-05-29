@@ -30,11 +30,23 @@ class PerfilUsuario extends Controller {
         }
     }
 
+    /**
+     * Método que muestra la página de "Ofertas aplicadas" en el perfil del usuario.
+     *
+     * Este método establece el título de la página y renderiza la vista correspondiente.
+     *
+     * @return void
+     */
     public function ofertasAplicadas(){
         $this->view->tituloPage = "Ofertas aplicadas";
         $this->view->render('perfilUsuario/ofertasAplicadas');
     }
 
+    /**
+     * Método que se encarga de aplicar una oferta de trabajo para el usuario actual.
+     *
+     * @return void
+     */
     public function aplicarOferta(){
         $ofertaId = $_POST['oferta_id'];
         $usuarioId = $this->userSession->getCurrentUser()['usuario_id'];

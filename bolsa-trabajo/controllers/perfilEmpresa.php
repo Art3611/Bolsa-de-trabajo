@@ -69,10 +69,15 @@ class PerfilEmpresa extends Controller {
         $this->render();
     }
 
+    /**
+     * Método que muestra las ofertas de trabajo publicadas por la empresa.
+     *
+     * @return void
+     */
     public function ofertasPublicadas() {
         $this->view->tituloPage = "Ofertas publicadas";
         $userId = $this->userSession->getUserId();
-    
+
         if ($userId) {
             $ofertas = $this->model->getByEmpresaId($userId);
             if ($ofertas) {
@@ -85,7 +90,7 @@ class PerfilEmpresa extends Controller {
             $this->view->ofertas = [];
             $this->view->mensaje = 'Error al obtener el ID de usuario';
         }
-    
+
         $this->view->render('perfilEmpresa/ofertasPublicadas');
     }
 

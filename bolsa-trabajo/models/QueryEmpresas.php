@@ -97,6 +97,12 @@ class QueryEmpresas extends Model {
         }
     }
 
+    /**
+     * Obtiene una oferta de trabajo por su ID de empresa.
+     *
+     * @param int $id_oferta El ID de la oferta de trabajo.
+     * @return Oferta|null La oferta de trabajo correspondiente al ID de empresa especificado, o null si no se encuentra.
+     */
     public function getByEmpresaId($id_oferta){
         try {
             $this->db->query("SELECT * FROM ofertas_trabajo WHERE id = :id");
@@ -107,7 +113,7 @@ class QueryEmpresas extends Model {
             $oferta->id = $ofertaData['empresa_id']; 
 
             return $oferta;
-    
+
         } catch (PDOException $e) {
             return [];
         }

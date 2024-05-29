@@ -182,15 +182,20 @@ class Empresa extends Model {
     }
     
 
-
+    /**
+     * Devuelve un array de objetos Aplicaciones que representan las ofertas de trabajo aplicadas por una empresa.
+     *
+     * @param int $id_empresa El ID de la empresa.
+     * @return array|bool Un array de objetos Aplicaciones si hay aplicaciones encontradas, o false si no hay aplicaciones.
+     */
     public function verOfertasAplicadas($id_empresa) {
         $items = [];
-    
+
         try {
             $this->db->query("SELECT a.*, o.nombre_trabajo FROM aplicaciones a JOIN ofertas_trabajo o ON a.oferta_id = o.id WHERE o.empresa_id = :id");
             $this->db->bind(':id', $id_empresa);
             $aplicaciones = $this->db->fetchAll();
-    
+
             if ($aplicaciones) {
                 foreach ($aplicaciones as $aplicacion) {
                     $item = new Aplicaciones();
@@ -202,14 +207,20 @@ class Empresa extends Model {
             } else {
                 return false;
             }
-    
+
             return $items;
-    
+
         } catch (PDOException $e) {
             return [];
         }
     }
 
+    /**
+     * Elimina una oferta de trabajo de la base de datos.
+     *
+     * @param int $id El ID de la oferta de trabajo a eliminar.
+     * @return bool Devuelve true si la eliminación fue exitosa, de lo contrario devuelve false.
+     */
     public function delete($id){
         try {
             $this->db->query("DELETE FROM ofertas_trabajo WHERE id = :id");
@@ -220,6 +231,10 @@ class Empresa extends Model {
         } catch (PDOException $e) {
             return false;
         }   
+    }
+
+    public function update(){
+        
     }
 }
 

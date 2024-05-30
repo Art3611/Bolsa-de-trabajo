@@ -3,11 +3,13 @@ require_once __DIR__ . '/userSesion.php';
 require_once __DIR__ . '/../models/Empresa.php';
 require_once __DIR__ . '/../models/Ofertas.php';
 require_once __DIR__ . '/../models/Aplicaciones.php';
+require_once __DIR__ . '/../models/QueryEmpresas.php';
 
 class PerfilEmpresa extends Controller {
 
     public $view;
     public $userSession;
+    public $ofertaModel;
 
     public function __construct(){
         parent::__construct();
@@ -15,6 +17,7 @@ class PerfilEmpresa extends Controller {
         $this->model = new Empresa();
         $this->view->ofertas = [];
         $this->view->aplicaciones = [];
+        $this->ofertaModel = new QueryEmpresas();
     }
 
     public function render(){
@@ -63,7 +66,7 @@ class PerfilEmpresa extends Controller {
         ]);
 
         if($resultado === 'oferta_registrada'){
-            header('Location: ' . constant('URL') . 'perfilEmpresa');
+            header('Location: ' . constant('URL') . 'perfilEmpresa/ofertasPublicadas');
             exit();
         }
         $this->render();
@@ -94,6 +97,9 @@ class PerfilEmpresa extends Controller {
         $this->view->render('perfilEmpresa/ofertasPublicadas');
     }
 
+    /**
+     * Método que muestra las ofertas de trabajo aplicadas por la empresa.
+     */
     public function OfertasAplicadas() {
         $empresaModel = new Empresa();
         $ofertasAplicadas = $empresaModel->verOfertasAplicadas($this->userSession->getUserId());
@@ -108,16 +114,69 @@ class PerfilEmpresa extends Controller {
         $view->render('perfilEmpresa/ofertasAplicadas');
     }
     
-
+    /**
+     * Elimina una oferta de trabajo.
+     *
+     * @param array|null $param - Parámetro que contiene la oferta a eliminar.
+     * @return void
+     */
     public function eliminarOferta($param = null){
         $oferta = $param[0];
 
         if($this->model->delete($oferta)){
             $this->view->mensaje = "oferta eliminada correctamente";
         }else {
-        $this->view->mensaje = "No se pudo eliminar el alumno";
+            $this->view->mensaje = "No se pudo eliminar el alumno";
         }
         $this->render();
+    }
+
+
+    /**
+     * Método para editar una oferta de trabajo.
+     *
+     * @param array|null $param - Parámetro opcional que contiene el ID de la oferta a editar.
+     * @return void
+     */
+    public function editarOferta($param = null){
+        $id_oferta = $param[0];
+        $oferta = $this->ofertaModel->getById($id_oferta);
+
+        $this->view->oferta = $oferta;
+        $this->view->tituloPage = "Editar oferta";
+        $this->view->render('perfilEmpresa/editarOferta');
+    }
+
+    /**
+     * Actualiza una oferta de trabajo en la base de datos.
+     *
+     * @param array|null $param - Parámetros adicionales para la actualización de la oferta.
+     * @return void
+     */
+    public function actualizarOferta($param = null){
+
+        $id_oferta = $param[0];
+        $nombre = $_POST['nombre_trabajo'];
+        $descripcion = $_POST['descripcion'];
+        $ubicacion = $_POST['ubicacion'];
+        $contrato = $_POST['contrato'];
+        $salario = $_POST['salario'];
+        $duracion = $_POST['duracion'];
+        $requisitos = $_POST['requisitos'];
+
+        if($this->model->update($id_oferta, [
+            'nombre_trabajo' => $nombre,
+            'descripcion' => $descripcion,
+            'ubicacion' => $ubicacion,
+            'contrato' => $contrato,
+            'salario' => $salario,
+            'duracion' => $duracion,
+            'requisitos' => $requisitos
+        ])){
+            $this->view->mensaje = "Oferta actualizada correctamente";
+            header('Location: ' . constant('URL') . 'perfilEmpresa');
+            exit();
+        }
     }
     
 }

@@ -233,9 +233,39 @@ class Empresa extends Model {
         }   
     }
 
-    public function update(){
-        
+    public function update($id, $item) {
+        try {
+            // Prepara la consulta
+            $this->db->query('UPDATE ofertas_trabajo SET 
+                nombre_trabajo = :nombre_trabajo, 
+                descripcion = :descripcion, 
+                ubicacion = :ubicacion, 
+                contrato = :contrato, 
+                salario = :salario, 
+                duracion = :duracion, 
+                requisitos = :requisitos 
+                WHERE id = :id');
+    
+            // Asocia los valores a los parámetros
+            $this->db->bind(':id', $id);
+            $this->db->bind(':nombre_trabajo', $item['nombre_trabajo']);
+            $this->db->bind(':descripcion', $item['descripcion']);
+            $this->db->bind(':ubicacion', $item['ubicacion']);
+            $this->db->bind(':contrato', $item['contrato']);
+            $this->db->bind(':salario', $item['salario']);
+            $this->db->bind(':duracion', $item['duracion']);
+            $this->db->bind(':requisitos', $item['requisitos']);
+    
+            // Ejecuta la consulta
+            $this->db->execute();
+    
+            return true;
+        } catch (PDOException $e) {
+            // Maneja la excepción
+            return false;
+        }
     }
+    
 }
 
 ?>

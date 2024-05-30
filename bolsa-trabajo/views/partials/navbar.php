@@ -56,7 +56,7 @@ $currentUser = $userSession->getCurrentUser();
 </div>
 
 <!-- Mobile Menu -->
-<div class="hidden flex flex-col space-y-3 text-center md:hidden" id="mobile-menu">
+<div class="hidden flex flex-col justify-center items-center space-y-3 text-center md:hidden p-5" id="mobile-menu">
     <a href="<?= constant('URL')?>" class="text-gray-800 hover:text-gray-500">Inicio</a>
     <a href="<?= constant('URL')?>ofertas/" class="text-gray-800 hover:text-gray-500">Trabajos</a>
     <a href="<?= constant('URL')?>empresas/" class="text-gray-800 hover:text-gray-500">Empresas</a>

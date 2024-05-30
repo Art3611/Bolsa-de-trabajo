@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Esta clase representa una aplicación a una oferta de trabajo.
+ * 
+ *  */
 class Aplicaciones extends Model {
     public $usuario;
     public $oferta;
@@ -11,9 +15,6 @@ class Aplicaciones extends Model {
     {
         
     }
-
-
 }
-
 
 ?>

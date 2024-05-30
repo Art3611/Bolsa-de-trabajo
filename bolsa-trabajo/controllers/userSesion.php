@@ -3,9 +3,10 @@
 /**
  * Clase UserSesion
  * 
- * Esta clase se utiliza para administrar las sesiónes de usuario.
+ * Esta clase se utiliza para administrar las sesiónes de usuario en la aplicacion.
  */
 class UserSesion {
+
     /**
      * Constructor de la clase UserSesion.
      * 
@@ -16,7 +17,6 @@ class UserSesion {
             session_start();
         }
     }
-
     
     /**
      * Obtiene el usuario actual de la sesión.
@@ -36,7 +36,7 @@ class UserSesion {
         return null;
     }
 
-       /**
+     /**
      * Establece el usuario actual y el rol en la sesión.
      * 
      * @param mixed $user El usuario actual.
@@ -51,7 +51,7 @@ class UserSesion {
     }
 
 
-        /**
+     /**
      * Obtiene el rol del usuario actual.
      * 
      * @return int|null El rol del usuario si está definido, de lo contrario, null.
@@ -63,7 +63,6 @@ class UserSesion {
         }
         return null;
     }
-
 
     /**
      * Obtiene el ID del usuario actual.

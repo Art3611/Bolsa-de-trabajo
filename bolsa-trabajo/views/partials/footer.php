@@ -7,17 +7,22 @@
         <div>
           <h6 class='font-bold text-xl'>Para candidatos</h6>
           <ul class='text-gray text-xl space-y-5 mt-2'>
-              <li>Buscar trabajo</li>
-              <li>Aplicar a un trabajo</li>
-              <li>Registrarme</li>
+            <li>
+               <a href="<?= constant('URL') ?>ofertas/">Aplicar a un trabajo</a>
+            </li>
+            <li>
+               <a href="<?= constant('URL') ?>registroUsuario/">Registrarme</a>
+            </li>
+            <li>
+               <a href="<?= constant('URL') ?>ofertas/">Aplicar a un trabajo</a>
+            </li>
           </ul>
         </div>
         <div>
-          <h6 class='font-bold text-xl'>Para empleados</h6>
+          <h6 class='font-bold text-xl'>Para empleadores</h6>
           <ul class='text-gray text-xl space-y-5 mt-2'>
-              <li>Publicar una oferta</li>
-              <li>Buscar candidatos</li>
-              <li>Registrar mi empresa</li>
+              <li><a href="<?= constant('URL') ?>registroEmpresa/">Publicar una oferta</a></li>
+              <li><a href="<?= constant('URL') ?>registroEmpresa/">Registrarme</a></li>
           </ul>
         </div>
     </div>

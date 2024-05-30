@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ .'/../models/QueryEmpresas.php';
 require_once __DIR__ . '/../models/Ofertas.php';
 

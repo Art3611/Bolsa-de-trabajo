@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Clase Oferta que representa una oferta de trabajo.
  */

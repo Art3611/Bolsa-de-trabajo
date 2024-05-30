@@ -30,3 +30,26 @@
         background-repeat: no-repeat;
     }
 }
+
+#menu {
+    display: none;
+}
+
+   /* Estilos adicionales */
+   #menu-button {
+    cursor: pointer;
+}
+#menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #ffffff; /* Fondo blanco o el color que prefieras */
+    z-index: 50; /* Asegúrate de que el menú se superponga correctamente */
+}
+@media (min-width: 640px) {
+    #menu {
+        position: static;
+        background-color: transparent;
+    }
+}

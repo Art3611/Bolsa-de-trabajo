@@ -30,5 +30,6 @@
             <p class='text-center'>@2024 Todos los derechos reservados</p>
      </div>
 </footer>
+<script src="<?= constant('URL')?>public/js/main.js"></script>
 </body>
 </html>

@@ -38,7 +38,7 @@ $currentUser = $userSession->getCurrentUser();
     ?>   
 </section>
 
-<section class='flex flex-col gap-yjustify-start items-start p-10 md:ml-72'>
+<section class='flex flex-col gap-y justify-start items-start p-10 md:ml-72'>
     <section>
         <article class='mb-5'>
             <h3 class='font-bold'>Descripcion del empleo:</h3>

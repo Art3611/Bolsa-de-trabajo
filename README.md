@@ -64,7 +64,7 @@ La aplicación de bolsa de trabajo realiza las siguientes acciones:
 - Los usuarios pueden ver una interfaz minimalista con ofertas de trabajo registradas en la base de datos.
 - Los usuarios deben crear una cuenta para aplicar y enviar solicitudes a las empresas.
 - Los empleadores pueden crear una cuenta de empresa para publicar ofertas de trabajo y gestionar las postulaciones recibidas.
-- Los usuarios pueden ver su historial de solicitudes y el estatus de cada una.
+- Los usuarios pueden ver su historial de solicitudes.
 
 ## Documentación de la Aplicación
 Aquí se encuentra toda la documentación técnica relacionada al proyecto, incluyendo guías y rutas correspondientes.

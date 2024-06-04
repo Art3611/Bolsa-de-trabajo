@@ -1,6 +1,10 @@
 <?php 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 require_once __DIR__ . '/../models/QueryEmpresas.php';
+require_once 'Aplicaciones.php';
 
 /**
  * Clase User
@@ -124,6 +128,39 @@ class User extends Model {
         $data['rol_id'] = $this->rol;
 
         return $this->insertUser($data);
+    }
+
+    public function verOfertasAplicadas($id_usuario) {
+        $items = [];
+    
+        try {
+            // Preparar la consulta
+            $this->db->query("SELECT a.*, o.nombre_trabajo FROM aplicaciones a JOIN ofertas_trabajo o ON a.oferta_id = o.id WHERE a.usuario_id = :id");
+            $this->db->bind(':id', $id_usuario);
+            
+            // Ejecutar y obtener los resultados
+            $aplicaciones = $this->db->fetchAll();
+    
+            // Comprobar si hay resultados
+            if ($aplicaciones) {
+                foreach ($aplicaciones as $aplicacion) {
+                    $item = new Aplicaciones();
+                    $item->id = $aplicacion['id'];
+                    $item->nombre_trabajo = $aplicacion['nombre_trabajo'];
+                    // Asignar otros campos relevantes si es necesario
+                    $items[] = $item;
+                }
+            } else {
+                return false; // No se encontraron aplicaciones
+            }
+    
+            return $items;
+    
+        } catch (PDOException $e) {
+            // Manejar la excepción y retornar un arreglo vacío
+            error_log('Error en verOfertasAplicadas: ' . $e->getMessage());
+            return [];
+        }
     }
 }
 

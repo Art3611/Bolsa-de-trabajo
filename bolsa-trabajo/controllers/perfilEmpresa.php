@@ -1,7 +1,5 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 require_once __DIR__ . '/userSesion.php';
 require_once __DIR__ . '/../models/Empresa.php';
 require_once __DIR__ . '/../models/Ofertas.php';
@@ -20,6 +18,7 @@ class PerfilEmpresa extends Controller {
         $this->model = new Empresa();
         $this->view->ofertas = [];
         $this->view->aplicaciones = [];
+    
         $this->ofertaModel = new QueryEmpresas();
     }
 
@@ -183,6 +182,12 @@ class PerfilEmpresa extends Controller {
         }
     }
 
+    /**
+     * Obtiene los datos de un aplicador y los muestra en la vista.
+     *
+     * @param array|null $param Parámetro opcional que contiene el ID del usuario aplicador.
+     * @return void
+     */
     public function datosAplicador($param = null) {
         if ($param && isset($param[0])) {
             $id_usuario = $param[0];
@@ -198,7 +203,6 @@ class PerfilEmpresa extends Controller {
         }
         $this->view->render('perfilEmpresa/datosAplicador');
     }
-    
 }
 
 ?>

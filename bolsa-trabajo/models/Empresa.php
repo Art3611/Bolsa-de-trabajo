@@ -1,10 +1,9 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 require_once __DIR__ . '/../controllers/userSesion.php';
 require_once __DIR__ . '/../models/Aplicaciones.php';
 require_once __DIR__ . '/../models/Ofertas.php';
+require_once __DIR__ . '/Usuario.php';
 
 
 /**
@@ -236,6 +235,13 @@ class Empresa extends Model {
         }   
     }
 
+    /**
+     * Actualiza un registro de oferta de trabajo en la base de datos.
+     *
+     * @param int $id El ID del registro a actualizar.
+     * @param array $item Los datos de la oferta de trabajo a actualizar.
+     * @return bool Devuelve true si la actualización fue exitosa, de lo contrario devuelve false.
+     */
     public function update($id, $item) {
         try {
             // Prepara la consulta
@@ -248,7 +254,7 @@ class Empresa extends Model {
                 duracion = :duracion, 
                 requisitos = :requisitos 
                 WHERE id = :id');
-    
+
             // Asocia los valores a los parámetros
             $this->db->bind(':id', $id);
             $this->db->bind(':nombre_trabajo', $item['nombre_trabajo']);
@@ -258,10 +264,10 @@ class Empresa extends Model {
             $this->db->bind(':salario', $item['salario']);
             $this->db->bind(':duracion', $item['duracion']);
             $this->db->bind(':requisitos', $item['requisitos']);
-    
+
             // Ejecuta la consulta
             $this->db->execute();
-    
+
             return true;
         } catch (PDOException $e) {
             // Maneja la excepción
@@ -269,11 +275,39 @@ class Empresa extends Model {
         }
     }
 
+    /**
+     * Devuelve los datos de un usuario específico.
+     *
+     * @param int $usuario_id El ID del usuario.
+     * @return Usuario|null El objeto Usuario con los datos del usuario o null si no se encuentra.
+     */
     public function verDatos($usuario_id){
-        $this->db->query('SELECT * FROM usuarios WHERE id = :usuario_id');
-        $this->db->bind(':usuario_id', $usuario_id);
-        $row = $this->db->single(); // Obtiene una única fila de resultados
-        return $row; // Devuelve los datos del usuario como un arreglo asociativo
+        try {
+            // Prepara la consulta SQL con un marcador de posición
+            $this->db->query('SELECT * FROM usuarios WHERE id = :usuario_id');
+            
+            // Vincula el valor del ID al marcador de posición
+            $this->db->bind(':usuario_id', $usuario_id);
+            
+            // Ejecuta la consulta y obtiene el resultado
+            $usuario = $this->db->single();
+            
+            if ($usuario) {
+
+                $item = new Usuario();
+                $item->nombre = $usuario['nombre'];
+                $item->apellido = $usuario['apellido'];
+                $item->telefono = $usuario['telefono'];
+                $item->descripcion = $usuario['descripcion'];
+                $item->direccion = $usuario['direccion'];
+
+                return $item;
+            } else {
+                return null;
+            }
+        } catch (PDOException $e) {
+            return null;
+        }
     }
     
     

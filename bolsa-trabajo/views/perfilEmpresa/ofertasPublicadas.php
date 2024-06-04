@@ -17,8 +17,9 @@ function truncateString($string, $length) {
 
 <?php require 'views/partials/sideBarEmpresa.php'; ?>
 
+<section>
+<h1 class='text-center font-bold'>Ofertas publicadas</h1>
 <section class='mx-auto flex gap-10 p-10 md:h-screen'>
-
 <?php if (isset($this->mensaje)) { ?>
     <div class="alert alert-warning">
         <h1 class='font-bold'><?= $this->mensaje ?></h1>
@@ -40,6 +41,8 @@ function truncateString($string, $length) {
     </div>
     <?php }} ?>
 </section>
+</section>
+
 </main>
 
 <?php require 'views/partials/footer.php'?>

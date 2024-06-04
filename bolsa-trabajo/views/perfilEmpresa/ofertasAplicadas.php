@@ -1,10 +1,7 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 require 'views/partials/header.php'; 
 include_once __DIR__ . '../../../models/Ofertas.php';
-
 
 ?>
 
@@ -12,7 +9,10 @@ include_once __DIR__ . '../../../models/Ofertas.php';
 
 <?php require 'views/partials/sideBarEmpresa.php';?>
 
+<section>
+<h1 class='text-center font-bold '>Aspirantes a tus empleos</h1>
 <section class='flex flex-wrap flex-col items-start md:flex-row gap-10 p-10 md:h-screen'>
+
     <?php
     if (!empty($this->aplicaciones)) {
         foreach ($this->aplicaciones as $aplicacion) {
@@ -28,6 +28,7 @@ include_once __DIR__ . '../../../models/Ofertas.php';
    <?php  
     }
     ?>
+</section>
 </section>
 </main>
 

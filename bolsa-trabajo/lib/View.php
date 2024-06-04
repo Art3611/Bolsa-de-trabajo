@@ -13,6 +13,7 @@ class View {
     public $ofertas;
     public $oferta;
     public $aplicaciones;
+    public $usuario;
 
     /**
      * Constructor de la clase View

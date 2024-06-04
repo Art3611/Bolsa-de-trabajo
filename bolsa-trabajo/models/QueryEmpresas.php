@@ -1,6 +1,6 @@
 <?php
 
-include_once 'models/Ofertas.php';
+require_once 'models/Ofertas.php';
 
 /**
  * Clase QueryEmpresas

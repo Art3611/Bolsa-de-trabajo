@@ -14,7 +14,6 @@ $currentUser = $userSession->getCurrentUser();
     <div class="hidden md:flex items-center space-x-3">
         <a href="<?= constant('URL')?>" class="text-gray-800 hover:text-gray-500">Inicio</a>
         <a href="<?= constant('URL')?>ofertas/" class="text-gray-800 hover:text-gray-500">Trabajos</a>
-        <a href="<?= constant('URL')?>empresas/" class="text-gray-800 hover:text-gray-500">Empresas</a>
         <?php if ($currentUser && $currentUser['user']) { ?>
         <?php if ($currentUser['rol_id'] == 2) { ?>
             <div id="profile-button" class="flex gap-x-5 bg-[#DCE8F8] p-2 rounded-lg mt-1 z-10">

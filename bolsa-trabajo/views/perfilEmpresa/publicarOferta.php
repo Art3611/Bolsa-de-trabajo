@@ -7,7 +7,7 @@
 <section class='mx-auto flex flex-col md:flex-row gap-10 p-10'>
 
 <div class='bg-[#F3F6FB] md:w-[725px] p-10 rounded-lg'>
- <h1 class='text-xl text-center'>Publicar oferta</h1>
+ <h1 class='text-xl text-center'>Publicar oferta laboral</h1>
 
  <form action="<?= constant('URL')?>perfilEmpresa/registrarOferta" method="POST" class='flex flex-col gap-3 md:gap-5'>
     <label for="nombre_trabajo">Nombre del trabajo <span class='text-red-500' >*</span></label>

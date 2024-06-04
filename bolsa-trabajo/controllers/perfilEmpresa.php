@@ -1,5 +1,7 @@
 <?php
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 require_once __DIR__ . '/userSesion.php';
 require_once __DIR__ . '/../models/Empresa.php';
 require_once __DIR__ . '/../models/Ofertas.php';
@@ -112,6 +114,7 @@ class PerfilEmpresa extends Controller {
         $view = new View();
         $view->aplicaciones = $ofertasAplicadas;
         
+        $this->view->tituloPage = "Ofertas aplicadas";
         $view->render('perfilEmpresa/ofertasAplicadas');
     }
     
@@ -178,6 +181,22 @@ class PerfilEmpresa extends Controller {
             header('Location: ' . constant('URL') . 'perfilEmpresa');
             exit();
         }
+    }
+
+    public function datosAplicador($param = null) {
+        if ($param && isset($param[0])) {
+            $id_usuario = $param[0];
+            $usuario = $this->model->verDatos($id_usuario);
+            if ($usuario) {
+                $this->view->tituloPage = 'Detalles del aspirante';
+                $this->view->usuario = $usuario;
+            } else {
+                $this->view->mensaje = "No se encontraron datos";
+            }
+        } else {
+            $this->view->mensaje = "ID de aplicación no válido";
+        }
+        $this->view->render('perfilEmpresa/datosAplicador');
     }
     
 }

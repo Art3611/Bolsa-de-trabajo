@@ -1,5 +1,7 @@
 <?php
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 require_once __DIR__ . '/../controllers/userSesion.php';
 require_once __DIR__ . '/../models/Aplicaciones.php';
 require_once __DIR__ . '/../models/Ofertas.php';
@@ -201,6 +203,7 @@ class Empresa extends Model {
                     $item = new Aplicaciones();
                     $item->id = $aplicacion['id'];
                     $item->nombre_trabajo = $aplicacion['nombre_trabajo'];
+                    $item->usuario = $aplicacion['usuario_id'];
                     // Asignar otros campos relevantes si es necesario
                     $items[] = $item;
                 }
@@ -265,6 +268,14 @@ class Empresa extends Model {
             return false;
         }
     }
+
+    public function verDatos($usuario_id){
+        $this->db->query('SELECT * FROM usuarios WHERE id = :usuario_id');
+        $this->db->bind(':usuario_id', $usuario_id);
+        $row = $this->db->single(); // Obtiene una única fila de resultados
+        return $row; // Devuelve los datos del usuario como un arreglo asociativo
+    }
+    
     
 }
 

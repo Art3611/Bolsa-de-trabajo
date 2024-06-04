@@ -9,7 +9,7 @@ $currentUser = $userSession->getCurrentUser();
 <!-- Navbar -->
 <div class="flex items-center justify-between p-5 bg-white">
     <div>
-        <a href="#" class="text-xl font-bold text-gray-800">Logo</a>
+        <a href="<?php constant('URL')?>" class="text-xl font-bold text-gray-800">Logo</a>
     </div>
     <div class="hidden md:flex items-center space-x-3">
         <a href="<?= constant('URL')?>" class="text-gray-800 hover:text-gray-500">Inicio</a>

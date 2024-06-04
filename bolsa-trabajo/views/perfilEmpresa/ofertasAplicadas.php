@@ -1,6 +1,10 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 require 'views/partials/header.php'; 
 include_once __DIR__ . '../../../models/Ofertas.php';
+
 
 ?>
 
@@ -15,7 +19,7 @@ include_once __DIR__ . '../../../models/Ofertas.php';
     ?>
     <div class='h-20 md:w-80 flex justify-between items-center p-5 border border-1 rounded-lg'>
         <h3 class='font-semibold'><?= $aplicacion->nombre_trabajo ?></h3>
-        <a class='bg-green-500 p-2 text-center rounded-lg text-white cursor-pointer'>Ver datos</a>
+        <a href='<?= constant('URL') . 'perfilEmpresa/datosAplicador/' . $aplicacion->usuario?>' class='bg-green-500 p-2 text-center rounded-lg text-white cursor-pointer' >Ver datos</a>
     </div>
     <?php
     }

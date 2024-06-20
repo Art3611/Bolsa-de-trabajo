@@ -42,15 +42,12 @@ http://localhost/proyectointegrado2t2024-DiosTeOdia/bolsa-trabajo/
 
 ## Descripcion
 
-Se trata de una aplicacion que hace la funcion de una bolsa de trabajo
-en la cual los usuarios pueden registrarse y postularse a las ofertas de trabajo
-que se encuentren disponibles en la aplicacion.
+Se trata de una aplicación que hace la función de una bolsa de trabajo en la cual los usuarios pueden registrarse y postularse a las ofertas de trabajo que se encuentren disponibles en la aplicación.
 
-La aplicacion trata de implementar el patron de diseño MVC (Modelo Vista Controlador)
-a un nivel simple para manterner la organizacion del codigo y optimizar el desarrollo.
+La aplicación trata de implementar el patrón de diseño MVC (Modelo Vista Controlador) a un nivel simple para mantener la organización del código y optimizar el desarrollo.
 
-Explico un podo como esta implementado
-Dentro del proyecto encontramos los siguientes directorios
+Explico un poco cómo está implementado:
+Dentro del proyecto encontramos los siguientes directorios:
 
 **controllers** -> Intermediario entre nuesto modelo y vistas.
 
@@ -58,8 +55,7 @@ Dentro del proyecto encontramos los siguientes directorios
 
 **views** -> Aqui se encuentran las vistas correspondientes a nuestra aplicacion.
 
-**lib** -> Aqui se encuentra las clases basicas de las cuales eredamos a nuestras demas clases
-en los anteriores directorios mencionados.
+**lib** -> Aquí se encuentran las clases básicas de las cuales heredamos a nuestras demás clases en los anteriores directorios mencionados.
 
 En el archivo **App**.php
 Aqui se encuentra la logica implementada para manejar las rutas de la aplicacion

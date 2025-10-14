@@ -7,7 +7,7 @@ Dentro de este README se encuentra la guía a la documentación y código corres
 
 ## Tabla de Contenidos
 
-- [Proyecto Integrado 23-24](#proyecto-integrado-23-24)
+- [Proyecto Integrado 24-25](#proyecto-integrado-24-25)
   - [Introducción](#introducción)
   - [Tabla de Contenidos](#tabla-de-contenidos)
   - [Entregas](#entregas)

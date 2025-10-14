@@ -21,17 +21,9 @@ Dentro de este README se encuentra la guía a la documentación y código corres
       - [Tablas](#tablas)
   - [Tecnologías Utilizadas](#tecnologías-utilizadas)
 
-## Entregas
-El proyecto se realizará en varias partes, por lo que se necesita un orden y documentación adecuada para el control y seguimiento del proyecto. Todas las entregas se encontrarán en el directorio llamado [entregas](./entregas/).
-
-### Entrega 1 - Propuesta del Proyecto
-[Propuesta del Proyecto](./entregas/anteproyecto/propuesta%20de%20proyecto)
-
-### Entrega 2 - Ante Proyecto
-[Ante Proyecto](./entregas/anteproyecto/)
 
 ## Objetivos
-Los objetivos del proyecto son los siguientes:
+Los objetivos son los siguientes:
 
 - Crear una aplicación con la funcionalidad de una bolsa de trabajo.
 - Desarrollar una interfaz para usuarios y empresas.

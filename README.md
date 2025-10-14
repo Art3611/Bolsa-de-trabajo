@@ -1,4 +1,4 @@
-# Proyecto Integrado 23-24
+# Bolsa de Trabajo
 
 ## Introducción
 Este proyecto de desarrollo web tiene como objetivo crear una aplicación con la funcionalidad de una bolsa de trabajo. A través de este proyecto, se busca aplicar los conocimientos adquiridos durante el curso y ponerlos en práctica.

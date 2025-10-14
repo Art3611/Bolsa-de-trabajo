@@ -7,12 +7,11 @@ Dentro de este README se encuentra la guía a la documentación y código corres
 
 ## Tabla de Contenidos
 
-- [Proyecto Integrado 24-25](#proyecto-integrado-24-25)
+
   - [Introducción](#introducción)
   - [Tabla de Contenidos](#tabla-de-contenidos)
   - [Entregas](#entregas)
-    - [Entrega 1 - Propuesta del Proyecto](#entrega-1---propuesta-del-proyecto)
-    - [Entrega 2 - Ante Proyecto](#entrega-2---ante-proyecto)
+    
   - [Objetivos](#objetivos)
     - [Objetivos Técnicos](#objetivos-técnicos)
   - [Metodología de Trabajo](#metodología-de-trabajo)
